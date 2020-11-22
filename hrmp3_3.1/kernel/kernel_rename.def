@@ -1,0 +1,234 @@
+# startup.c
+barrier_sync
+exit_kernel
+dispatch_handler
+ext_ker_handler
+
+# domain.c
+p_global_cursom
+p_global_nxtsom
+scycprc_bitmap
+scyc_evttim
+initialize_domain
+twdtimer_start
+twdtimer_stop
+twdtimer_control
+scyc_start
+scyc_switch
+twd_start
+twd_switch
+set_dspflg
+start_scyc_handler
+
+# task.c
+initialize_task
+search_predtsk
+update_my_schedtsk
+update_schedtsk
+make_runnable
+make_non_runnable
+make_dormant
+make_active
+change_priority
+rotate_ready_queue
+task_terminate
+migrate_self
+migrate_activate_self
+
+# taskhook.c
+mtxhook_check_ceilpri
+mtxhook_scan_ceilmtx
+mtxhook_release_all
+mbfhook_dequeue_wobj
+
+# wait.c
+make_wait_tmout
+wait_dequeue_wobj
+wait_complete
+wait_tmout
+wait_tmout_ok
+wobj_make_wait
+wobj_make_wait_tmout
+init_wait_queue
+
+# memory.c
+initialize_memory
+search_meminib
+probe_mem_write
+probe_mem_read
+initialize_sections
+
+# time_event.c
+boundary_evttim
+current_evttim
+current_hrtcnt
+monotonic_evttim
+systim_offset
+initialize_tmevt
+tmevt_up
+tmevt_down
+update_current_evttim
+set_hrt_event
+set_hrt_event_handler
+tmevtb_register
+tmevtb_enqueue
+tmevtb_enqueue_reltim
+tmevtb_dequeue
+check_adjtim
+tmevt_lefttim
+tmevt_proc_top
+signal_time
+
+# semaphore.c
+initialize_semaphore
+
+# eventflag.c
+initialize_eventflag
+check_flg_cond
+
+# dataqueue.c
+initialize_dataqueue
+enqueue_data
+force_enqueue_data
+dequeue_data
+send_data
+force_send_data
+receive_data
+
+# pridataq.c
+initialize_pridataq
+enqueue_pridata
+dequeue_pridata
+send_pridata
+receive_pridata
+
+# mutex.c
+initialize_mutex
+mutex_check_ceilpri
+mutex_scan_ceilmtx
+mutex_drop_priority
+mutex_acquire
+mutex_release
+mutex_release_all
+
+# messagebuf.c
+initialize_messagebuf
+enqueue_message
+dequeue_message
+send_message
+messagebuf_signal
+receive_message
+messagebuf_dequeue_wobj
+
+# mempfix.c
+initialize_mempfix
+get_mpf_block
+
+# spin_lock.c
+initialize_spin_lock
+force_unlock_spin
+
+# cyclic.c
+initialize_cyclic
+call_cyclic
+
+# alarm.c
+initialize_alarm
+call_alarm
+
+# interrupt.c
+initialize_interrupt
+
+# exception.c
+initialize_exception
+
+# svc_table.c
+svc_table
+
+# kernel_cfg.c
+kerflg_table
+p_pcb_table
+initialize_object
+inirtnbb_table
+terrtnbb_table
+p_scyc_tmevtb_table
+p_schedcb_idle_table
+p_tmevt_heap_idle_table
+tmax_tskid
+tinib_table
+torder_table
+p_tcb_table
+tmax_semid
+seminib_table
+p_semcb_table
+tmax_flgid
+flginib_table
+p_flgcb_table
+tmax_dtqid
+dtqinib_table
+p_dtqcb_table
+tmax_pdqid
+pdqinib_table
+p_pdqcb_table
+tmax_mtxid
+mtxinib_table
+p_mtxcb_table
+tmax_mbfid
+mbfinib_table
+p_mbfcb_table
+tmax_mpfid
+mpfinib_table
+p_mpfcb_table
+tmax_spnid
+spninib_table
+p_spncb_table
+tmax_cycid
+cycinib_table
+p_cyccb_table
+tmax_almid
+alminib_table
+p_almcb_table
+tnum_def_inhno
+inhinib_table
+tnum_cfg_intno
+intinib_table
+tnum_def_excno
+excinib_table
+tmax_fncd
+svcinib_table
+sysstat_acvct
+istksz_table
+istk_table
+istkpt_table
+idstk_table
+idstkpt_table
+initialize_object
+system_cyctim
+tmax_somid
+p_inisom
+sominib_table
+tmax_domid
+dominib_kernel
+dominib_table
+twdinib_table
+
+# kernel_mem.c
+tnum_meminib
+memtop_table
+meminib_table
+tnum_datasec
+datasecinib_table
+tnum_bsssec
+bsssecinib_table
+
+# tTraceLog.c
+log_dsp_enter
+log_dsp_leave
+log_inh_enter
+log_inh_leave
+log_exc_enter
+log_exc_leave
+log_extsvc_enter
+log_extsvc_leave
+
+INCLUDE "target"

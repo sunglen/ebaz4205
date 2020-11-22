@@ -1,0 +1,6 @@
+../../test_cfg/pass2_task2.cfg:13: error: E_PAR: system stack size `0' is too small in CRE_TSK of TASK1
+../../test_cfg/pass2_task2.cfg:18: error: E_PAR: sstksz `1' is not aligned in CRE_TSK of TASK2
+../../test_cfg/pass2_task2.cfg:22: error: sstksz must be specified in CRE_TSK of TASK3
+../../test_cfg/pass2_task2.cfg:31: error: E_PAR: illegal sstk `stack_TASK4' in CRE_TSK of TASK4
+../../test_cfg/pass2_task2.cfg:36: error: E_PAR: sstksz `STACK_SIZE' must be zero in CRE_TSK of `TASK5'
+make: *** [kernel_cfg.timestamp] Error 1

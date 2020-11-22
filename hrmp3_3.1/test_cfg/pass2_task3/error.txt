@@ -1,0 +1,4 @@
+../../test_cfg/pass2_task3.cfg:20: error: E_PAR: User domain DOM1 to which TASK1 belongs is not allocated a time window on the initial assignment processor of class CLS_ALL_PRC1.
+../../test_cfg/pass2_task3.cfg:25: error: E_PAR: User domain DOM1 to which CYC1 belongs is not allocated a time window on the initial assignment processor of class CLS_ALL_PRC1.
+../../test_cfg/pass2_task3.cfg:30: error: E_PAR: User domain DOM1 to which ALM1 belongs is not allocated a time window on the initial assignment processor of class CLS_ALL_PRC1.
+make: *** [kernel_cfg.timestamp] Error 1

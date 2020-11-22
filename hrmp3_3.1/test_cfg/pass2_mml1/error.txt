@@ -1,0 +1,14 @@
+../../test_cfg/pass2_mml1.cfg:10: warning: ATT_REG is not supported under manual memory layout
+../../test_cfg/pass2_mml1.cfg:14: warning: DEF_SRG is not supported under manual memory layout
+../../test_cfg/pass2_mml1.cfg:20: warning: ATT_MOD is not supported under manual memory layout
+../../test_cfg/pass2_mml1.cfg:17: warning: ATT_SEC is not supported under manual memory layout
+../../test_cfg/pass2_mml1.cfg:30: error: E_PAR: stk `NULL' must not be null under manual memory layout in CRE_TSK of TASK1
+../../test_cfg/pass2_mml1.cfg:31: error: E_PAR: stk `NULL' must not be null under manual memory layout in CRE_TSK of TASK2
+../../test_cfg/pass2_mml1.cfg:42: error: E_PAR: stk `0x03000001' is not aligned in CRE_TSK of TASK3
+../../test_cfg/pass2_mml1.cfg:43: error: E_PAR: stksz `1' is not aligned in CRE_TSK of TASK4
+../../test_cfg/pass2_mml1.cfg:37: error: E_PAR: mpf `NULL' must not be null under manual memory layout in CRE_MPF of MPF1
+../../test_cfg/pass2_mml1.cfg:38: error: E_PAR: mpf `NULL' must not be null under manual memory layout in CRE_MPF of MPF2
+../../test_cfg/pass2_mml1.cfg:53: error: E_PAR: mpf `NULL' must not be null under manual memory layout in CRE_MPF of MPF3
+../../test_cfg/pass2_mml1.cfg:55: error: E_PAR: mpf `NULL' must not be null under manual memory layout in CRE_MPF of MPF4
+../../test_cfg/pass2_mml1.cfg:24: error: E_PAR: size `0x2000000' is too large in ATT_MEM
+make: *** [kernel_cfg.timestamp] Error 1

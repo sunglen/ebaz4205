@@ -1,0 +1,21 @@
+../../test_cfg/pass2_cfg2.cfg:12: error: E_NOEXS: `TASK1' in SAC_TSK is not defined
+../../test_cfg/pass2_cfg2.cfg:17: error: E_OBJ: tskid `TASK2' is duplicated in SAC_TSK
+../../test_cfg/pass2_cfg2.cfg:20: error: E_NOEXS: `SEM1' in SAC_SEM is not defined
+../../test_cfg/pass2_cfg2.cfg:25: error: E_OBJ: semid `SEM2' is duplicated in SAC_SEM
+../../test_cfg/pass2_cfg2.cfg:28: error: E_NOEXS: `FLG1' in SAC_FLG is not defined
+../../test_cfg/pass2_cfg2.cfg:34: error: E_OBJ: flgid `FLG2' is duplicated in SAC_FLG
+../../test_cfg/pass2_cfg2.cfg:37: error: E_NOEXS: `DTQ1' in SAC_DTQ is not defined
+../../test_cfg/pass2_cfg2.cfg:43: error: E_OBJ: dtqid `DTQ2' is duplicated in SAC_DTQ
+../../test_cfg/pass2_cfg2.cfg:46: error: E_NOEXS: `PDQ1' in SAC_PDQ is not defined
+../../test_cfg/pass2_cfg2.cfg:52: error: E_OBJ: pdqid `PDQ2' is duplicated in SAC_PDQ
+../../test_cfg/pass2_cfg2.cfg:55: error: E_NOEXS: `MTX1' in SAC_MTX is not defined
+../../test_cfg/pass2_cfg2.cfg:61: error: E_OBJ: mtxid `MTX2' is duplicated in SAC_MTX
+../../test_cfg/pass2_cfg2.cfg:64: error: E_NOEXS: `MPF1' in SAC_MPF is not defined
+../../test_cfg/pass2_cfg2.cfg:70: error: E_OBJ: mpfid `MPF2' is duplicated in SAC_MPF
+../../test_cfg/pass2_cfg2.cfg:73: error: E_NOEXS: `CYC1' in SAC_CYC is not defined
+../../test_cfg/pass2_cfg2.cfg:78: error: E_OBJ: cycid `CYC2' is duplicated in SAC_CYC
+../../test_cfg/pass2_cfg2.cfg:81: error: E_NOEXS: `ALM1' in SAC_ALM is not defined
+../../test_cfg/pass2_cfg2.cfg:87: error: E_OBJ: almid `ALM2' is duplicated in SAC_ALM
+../../test_cfg/pass2_cfg2.cfg:94: error: E_OBJ: fncd `3' is duplicated in DEF_SVC
+../../test_cfg/pass2_cfg2.cfg:102: error: E_ID: `TASK1' in ATT_TWD is not defined
+make: *** [kernel_cfg.timestamp] Error 1

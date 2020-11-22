@@ -1,0 +1,66 @@
+../../test_cfg/pass4_all1.cfg:12: error: E_PAR: task `ADD1(task1)' is not aligned in CRE_TSK of TASK1
+../../test_cfg/pass4_all1.cfg:13: error: E_PAR: task `0' is null in CRE_TSK of TASK2
+../../test_cfg/pass4_all1.cfg:16: error: E_PAR: stk `ADD1(stack_TASK3)' is not aligned in CRE_TSK of TASK3
+../../test_cfg/pass4_all1.cfg:18: error: E_PAR: stk `0' is null in CRE_TSK of TASK4
+../../test_cfg/pass4_all1.cfg:18: error: E_OBJ: stack area of `TASK4' is not included in any kernel memory object
+../../test_cfg/pass4_all1.cfg:21: error: E_PAR: mpf `ADD1(mpf_MPF1)' is not aligned in CRE_MPF of MPF1
+../../test_cfg/pass4_all1.cfg:22: error: E_PAR: mpf `0' is null in CRE_MPF of MPF2
+../../test_cfg/pass4_all1.cfg:22: error: E_OBJ: memory pool area of `MPF2' is not included in any memory object
+../../test_cfg/pass4_all1.cfg:25: error: E_PAR: tmehdr `ADD1(cyclic1_handler)' is not aligned in CRE_CYC of CYC1
+../../test_cfg/pass4_all1.cfg:27: error: E_PAR: tmehdr `0' is null in CRE_CYC of CYC2
+../../test_cfg/pass4_all1.cfg:30: error: E_PAR: p_var `ADD1(&nvar1)' is not aligned in CRE_CYC of CYC3
+../../test_cfg/pass4_all1.cfg:31: error: E_PAR: p_var `0' is null in CRE_CYC of CYC4
+../../test_cfg/pass4_all1.cfg:31: error: E_MACV: p_var `0' cannot be accessed from protection domain `TDOM_KERNEL' in CRE_CYC of CYC4
+../../test_cfg/pass4_all1.cfg:34: error: E_PAR: p_var `ADD1(&nvar1)' is not aligned in CRE_CYC of CYC5
+../../test_cfg/pass4_all1.cfg:36: error: E_PAR: p_var `0' is null in CRE_CYC of CYC6
+../../test_cfg/pass4_all1.cfg:36: error: E_MACV: p_var `0' cannot be accessed from protection domain `TDOM_KERNEL' in CRE_CYC of CYC6
+../../test_cfg/pass4_all1.cfg:40: error: E_PAR: p_var `ADD1(&nvar2)' is not aligned in CRE_CYC of CYC7
+../../test_cfg/pass4_all1.cfg:41: error: E_PAR: p_var `0' is null in CRE_CYC of CYC8
+../../test_cfg/pass4_all1.cfg:41: error: E_MACV: p_var `0' cannot be accessed from protection domain `TDOM_KERNEL' in CRE_CYC of CYC8
+../../test_cfg/pass4_all1.cfg:44: error: E_PAR: p_var `ADD1(&nvar2)' is not aligned in CRE_CYC of CYC9
+../../test_cfg/pass4_all1.cfg:46: error: E_PAR: p_var `0' is null in CRE_CYC of CYC10
+../../test_cfg/pass4_all1.cfg:46: error: E_MACV: p_var `0' cannot be accessed from protection domain `TDOM_KERNEL' in CRE_CYC of CYC10
+../../test_cfg/pass4_all1.cfg:50: error: E_ID: illegal tskid `TSKID_LARGE' in CRE_CYC of CYC11
+../../test_cfg/pass4_all1.cfg:51: error: E_ID: illegal tskid `TSKID_LARGE' in CRE_CYC of CYC12
+../../test_cfg/pass4_all1.cfg:52: error: E_ID: illegal tskid `TSKID_LARGE' in CRE_CYC of CYC13
+../../test_cfg/pass4_all1.cfg:54: error: E_ID: illegal tskid `TSKID_LARGE' in CRE_CYC of CYC14
+../../test_cfg/pass4_all1.cfg:58: error: E_ID: illegal semid `SEMID_LARGE' in CRE_CYC of CYC15
+../../test_cfg/pass4_all1.cfg:59: error: E_ID: illegal semid `SEMID_LARGE' in CRE_CYC of CYC16
+../../test_cfg/pass4_all1.cfg:63: error: E_ID: illegal flgid `FLGID_LARGE' in CRE_CYC of CYC17
+../../test_cfg/pass4_all1.cfg:65: error: E_ID: illegal flgid `FLGID_LARGE' in CRE_CYC of CYC18
+../../test_cfg/pass4_all1.cfg:69: error: E_ID: illegal dtqid `DTQID_LARGE' in CRE_CYC of CYC19
+../../test_cfg/pass4_all1.cfg:71: error: E_ID: illegal dtqid `DTQID_LARGE' in CRE_CYC of CYC20
+../../test_cfg/pass4_all1.cfg:75: error: E_PAR: tmehdr `ADD1(alarm1_handler)' is not aligned in CRE_ALM of ALM1
+../../test_cfg/pass4_all1.cfg:76: error: E_PAR: tmehdr `0' is null in CRE_ALM of ALM2
+../../test_cfg/pass4_all1.cfg:79: error: E_PAR: p_var `ADD1(&nvar1)' is not aligned in CRE_ALM of ALM3
+../../test_cfg/pass4_all1.cfg:80: error: E_PAR: p_var `0' is null in CRE_ALM of ALM4
+../../test_cfg/pass4_all1.cfg:80: error: E_MACV: p_var `0' cannot be accessed from protection domain `TDOM_KERNEL' in CRE_ALM of ALM4
+../../test_cfg/pass4_all1.cfg:83: error: E_PAR: p_var `ADD1(&nvar1)' is not aligned in CRE_ALM of ALM5
+../../test_cfg/pass4_all1.cfg:85: error: E_PAR: p_var `0' is null in CRE_ALM of ALM6
+../../test_cfg/pass4_all1.cfg:85: error: E_MACV: p_var `0' cannot be accessed from protection domain `TDOM_KERNEL' in CRE_ALM of ALM6
+../../test_cfg/pass4_all1.cfg:88: error: E_PAR: p_var `ADD1(&nvar2)' is not aligned in CRE_ALM of ALM7
+../../test_cfg/pass4_all1.cfg:89: error: E_PAR: p_var `0' is null in CRE_ALM of ALM8
+../../test_cfg/pass4_all1.cfg:89: error: E_MACV: p_var `0' cannot be accessed from protection domain `TDOM_KERNEL' in CRE_ALM of ALM8
+../../test_cfg/pass4_all1.cfg:92: error: E_PAR: p_var `ADD1(&nvar2)' is not aligned in CRE_ALM of ALM9
+../../test_cfg/pass4_all1.cfg:94: error: E_PAR: p_var `0' is null in CRE_ALM of ALM10
+../../test_cfg/pass4_all1.cfg:94: error: E_MACV: p_var `0' cannot be accessed from protection domain `TDOM_KERNEL' in CRE_ALM of ALM10
+../../test_cfg/pass4_all1.cfg:97: error: E_ID: illegal tskid `TSKID_LARGE' in CRE_ALM of ALM11
+../../test_cfg/pass4_all1.cfg:98: error: E_ID: illegal tskid `TSKID_LARGE' in CRE_ALM of ALM12
+../../test_cfg/pass4_all1.cfg:99: error: E_ID: illegal tskid `TSKID_LARGE' in CRE_ALM of ALM13
+../../test_cfg/pass4_all1.cfg:101: error: E_ID: illegal tskid `TSKID_LARGE' in CRE_ALM of ALM14
+../../test_cfg/pass4_all1.cfg:105: error: E_ID: illegal semid `SEMID_LARGE' in CRE_ALM of ALM15
+../../test_cfg/pass4_all1.cfg:106: error: E_ID: illegal semid `SEMID_LARGE' in CRE_ALM of ALM16
+../../test_cfg/pass4_all1.cfg:110: error: E_ID: illegal flgid `FLGID_LARGE' in CRE_ALM of ALM17
+../../test_cfg/pass4_all1.cfg:111: error: E_ID: illegal flgid `FLGID_LARGE' in CRE_ALM of ALM18
+../../test_cfg/pass4_all1.cfg:115: error: E_ID: illegal dtqid `DTQID_LARGE' in CRE_ALM of ALM19
+../../test_cfg/pass4_all1.cfg:117: error: E_ID: illegal dtqid `DTQID_LARGE' in CRE_ALM of ALM20
+../../test_cfg/pass4_all1.cfg:133: error: E_PAR: istk `ADD1(istack)' is not aligned in DEF_ICS
+../../test_cfg/pass4_all1.cfg:136: error: E_PAR: inirtn `ADD1(initialize1_routine)' is not aligned in ATT_INI
+../../test_cfg/pass4_all1.cfg:137: error: E_PAR: inirtn `0' is null in ATT_INI
+../../test_cfg/pass4_all1.cfg:141: error: E_PAR: terrtn `0' is null in ATT_TER
+../../test_cfg/pass4_all1.cfg:140: error: E_PAR: terrtn `ADD1(terminate1_routine)' is not aligned in ATT_TER
+../../test_cfg/pass4_all1.cfg:125: error: E_PAR: inthdr `ADD1(int1_handler)' is not aligned in DEF_INH of INHNO1
+../../test_cfg/pass4_all1.cfg:126: error: E_PAR: inthdr `0' is null in DEF_INH of INHNO2
+../../test_cfg/pass4_all1.cfg:129: error: E_PAR: exchdr `ADD1(cpuexc1_handler)' is not aligned in DEF_EXC of CPUEXC1
+../../test_cfg/pass4_all1.cfg:130: error: E_PAR: exchdr `0' is null in DEF_EXC of CPUEXC2
+make: *** [kernel_mem.timestamp] Error 1

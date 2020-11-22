@@ -1,0 +1,7 @@
+E_PACKAGE hrmp3_ebaz4205_gcc
+VERSION %date
+
+INCLUDE ../../MANIFEST
+INCLUDE ../../arch/arm_gcc/MANIFEST
+INCLUDE ../../arch/arm_gcc/zynq7000/MANIFEST
+INCLUDE MANIFEST

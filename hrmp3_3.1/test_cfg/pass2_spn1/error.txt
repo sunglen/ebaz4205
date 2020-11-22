@@ -1,0 +1,4 @@
+../../test_cfg/pass2_spn1.cfg:14: error: E_OBJ: spnid `SPN1' is duplicated in CRE_SPN
+../../test_cfg/pass2_spn1.cfg:17: error: E_NOEXS: `SPN2' in SAC_SPN is not defined
+../../test_cfg/pass2_spn1.cfg:23: error: E_OBJ: spnid `SPN3' is duplicated in SAC_SPN
+make: *** [kernel_cfg.timestamp] Error 1

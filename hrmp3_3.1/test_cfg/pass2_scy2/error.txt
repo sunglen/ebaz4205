@@ -1,0 +1,2 @@
+../../test_cfg/pass2_scy2.cfg:10: error: E_PAR: illegal scyctim `TMAX_RELTIM + 1' in DEF_SCY
+make: *** [kernel_cfg.timestamp] Error 1

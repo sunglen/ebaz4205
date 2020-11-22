@@ -1,0 +1,8 @@
+../../test_cfg/cfg_warning1.cfg:40: warning: class is ignored for ACV_DOM
+../../test_cfg/cfg_warning1.cfg:51: warning: class is ignored for ACV_DOM
+../../test_cfg/cfg_warning1.cfg:57: warning: class is ignored for ACV_DOM
+../../test_cfg/cfg_warning1.cfg:27: warning: CRE_SOM is ignored
+../../test_cfg/cfg_warning1.cfg:30: warning: ATT_TWD is ignored
+../../test_cfg/cfg_warning1.cfg:43: warning: ceilpri `MID_PRIORITY' is ignored in CRE_MTX of MTX1
+../../test_cfg/cfg_warning1.cfg:44: warning: ceilpri `MID_PRIORITY' is ignored in CRE_MTX of MTX2
+../../test_cfg/cfg_warning1.cfg:37: warning: class is ignored for SAC_SYS

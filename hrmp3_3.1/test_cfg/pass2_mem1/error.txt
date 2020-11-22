@@ -1,0 +1,39 @@
+../../test_cfg/pass2_mem1.cfg:10: error: E_RSATR: illegal regatr `0x100U' in ATT_REG of RAM1
+../../test_cfg/pass2_mem1.cfg:13: error: E_PAR: size `0' is zero in ATT_REG of RAM2
+../../test_cfg/pass2_mem1.cfg:17: error: E_PAR: size `0x00900000' is too large in ATT_REG of RAM3
+../../test_cfg/pass2_mem1.cfg:20: error: E_OBJ: memory region `RAM1' in ATT_REG is duplicated
+../../test_cfg/pass2_mem1.cfg:24: error: E_OBJ: memory region `RAM4' overlaps with another memory region `ROM'
+../../test_cfg/pass2_mem1.cfg:27: error: E_OBJ: DEF_SRG is duplicated in protection domain `-2'
+../../test_cfg/pass2_mem1.cfg:31: error: E_OBJ: illegal region name `ROM0' in DEF_SRG
+../../test_cfg/pass2_mem1.cfg:36: error: E_OBJ: illegal region name `RAM0' in DEF_SRG
+../../test_cfg/pass2_mem1.cfg:41: error: E_OBJ: illegal region name `ROM0' in DEF_SRG
+../../test_cfg/pass2_mem1.cfg:46: error: E_OBJ: illegal region name `RAM0' in DEF_SRG
+../../test_cfg/pass2_mem1.cfg:52: error: E_OBJ: standard RAM region must not have TA_NOWRITE attribute in DEF_SRG
+../../test_cfg/pass2_mem1.cfg:58: error: E_OBJ: standard short RAM region must not have TA_NOWRITE attribute in DEF_SRG
+../../test_cfg/pass2_mem1.cfg:68: error: E_OBJ: object module `test_attmod1.o' in ATT_MOD is duplicated
+../../test_cfg/pass2_mem1.cfg:71: error: E_RSATR: illegal mematr `0x100U' in ATT_SEC
+../../test_cfg/pass2_mem1.cfg:71: error: E_RSATR: illegal mematr `0x100U' in ATT_SEC
+../../test_cfg/pass2_mem1.cfg:75: error: E_RSATR: illegal mematr `TA_NULL' in ATT_SEC
+../../test_cfg/pass2_mem1.cfg:79: error: E_RSATR: illegal mematr `TA_NOWRITE|TA_MEMINI' in ATT_SEC
+../../test_cfg/pass2_mem1.cfg:83: error: E_RSATR: illegal mematr `TA_NOWRITE|TA_MEMZERO' in ATT_SEC
+../../test_cfg/pass2_mem1.cfg:86: error: E_RSATR: illegal mematr `TA_MEMINI|TA_MEMZERO' in ATT_SEC
+../../test_cfg/pass2_mem1.cfg:90: error: E_PAR: section `COMMON' cannot be attached with ATT_SEC
+../../test_cfg/pass2_mem1.cfg:94: error: E_PAR: section `.text' cannot be attached with ATT_SEC
+../../test_cfg/pass2_mem1.cfg:95: error: E_PAR: section `.rodata' cannot be attached with ATT_SEC
+../../test_cfg/pass2_mem1.cfg:96: error: E_PAR: section `.data' cannot be attached with ATT_SEC
+../../test_cfg/pass2_mem1.cfg:97: error: E_PAR: section `.bss' cannot be attached with ATT_SEC
+../../test_cfg/pass2_mem1.cfg:100: error: E_OBJ: section `.text_kernel_add1' in ATT_SEC is duplicated
+../../test_cfg/pass2_mem1.cfg:103: error: E_OBJ: illegal region name `ROM0' in ATT_SEC
+../../test_cfg/pass2_mem1.cfg:106: error: E_RSATR: illegal accatr `0x100U' in ATT_MEM
+../../test_cfg/pass2_mem1.cfg:107: error: E_RSATR: illegal accatr `TA_SDATA' in ATT_MEM
+../../test_cfg/pass2_mem1.cfg:108: error: E_RSATR: illegal accatr `TA_MEMINI' in ATT_MEM
+../../test_cfg/pass2_mem1.cfg:109: error: E_RSATR: illegal accatr `TA_MEMZERO' in ATT_MEM
+../../test_cfg/pass2_mem1.cfg:112: error: E_PAR: size `0x00000000' is zero in ATT_MEM
+../../test_cfg/pass2_mem1.cfg:115: error: E_RSATR: illegal accatr `0x100U' in ATT_PMA
+../../test_cfg/pass2_mem1.cfg:116: error: E_RSATR: illegal accatr `TA_SDATA' in ATT_PMA
+../../test_cfg/pass2_mem1.cfg:117: error: E_RSATR: illegal accatr `TA_MEMINI' in ATT_PMA
+../../test_cfg/pass2_mem1.cfg:118: error: E_RSATR: illegal accatr `TA_MEMZERO' in ATT_PMA
+../../test_cfg/pass2_mem1.cfg:121: error: E_PAR: size `0x00000000' is zero in ATT_PMA
+../../test_cfg/pass2_mem1.cfg:129: error: E_PAR: section `.ustack_TASK2' cannot be attached with ATT_SEC
+../../test_cfg/pass2_mem1.cfg:130: error: E_PAR: section `.mpf_MPF1' cannot be attached with ATT_SEC
+make: *** [kernel_cfg.timestamp] Error 1

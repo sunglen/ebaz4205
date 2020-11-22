@@ -1,0 +1,8 @@
+../../test_cfg/pass2_obj4.cfg:33: error: E_RSATR: The initial assignment processor of the class in which DEF_INH of `INHNO3' is described must be the processor to which the interrupt is requested.
+../../test_cfg/pass2_obj4.cfg:39: error: E_RSATR: intno `65547' corresponding to inhno `INHNO4' in DEF_INH does not belong to the same class with CFG_INT
+../../test_cfg/pass2_obj4.cfg:17: error: E_RSATR: The assignable processors of the class in which CRE_ISR of `INTNO1' is described must be included in the set of processors to which the interrupt is requested.
+../../test_cfg/pass2_obj4.cfg:26: error: E_RSATR: intno `INTNO2' in CRE_ISR does not belong to the same class with CFG_INT
+../../test_cfg/pass2_obj4.cfg:45: error: E_RSATR: The initial assignment processor of the class in which DEF_EXC of `CPUEXC1' is described must be the processor in which the CPU exception occurs.
+../../test_cfg/pass2_obj4.cfg:50: error: E_RSATR: illegal class `CLS_LARGE' in DEF_ICS
+../../test_cfg/pass2_obj4.cfg:61: error: E_OBJ: DEF_ICS is duplicated for processor 2
+make: *** [kernel_cfg.timestamp] Error 1

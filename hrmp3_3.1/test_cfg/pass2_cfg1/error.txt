@@ -1,0 +1,14 @@
+../../test_cfg/pass2_cfg1.cfg:13: error: E_OBJ: tskid `TASK1' is duplicated in CRE_TSK
+../../test_cfg/pass2_cfg1.cfg:17: error: E_OBJ: semid `SEM1' is duplicated in CRE_SEM
+../../test_cfg/pass2_cfg1.cfg:21: error: E_OBJ: flgid `FLG1' is duplicated in CRE_FLG
+../../test_cfg/pass2_cfg1.cfg:25: error: E_OBJ: dtqid `DTQ1' is duplicated in CRE_DTQ
+../../test_cfg/pass2_cfg1.cfg:29: error: E_OBJ: pdqid `PDQ1' is duplicated in CRE_PDQ
+../../test_cfg/pass2_cfg1.cfg:33: error: E_OBJ: mtxid `MTX1' is duplicated in CRE_MTX
+../../test_cfg/pass2_cfg1.cfg:37: error: E_OBJ: mpfid `MPF1' is duplicated in CRE_MPF
+../../test_cfg/pass2_cfg1.cfg:41: error: E_OBJ: cycid `CYC1' is duplicated in CRE_CYC
+../../test_cfg/pass2_cfg1.cfg:45: error: E_OBJ: almid `ALM1' is duplicated in CRE_ALM
+../../test_cfg/pass2_cfg1.cfg:49: error: E_OBJ: isrid `ISR1' is duplicated in CRE_ISR
+../../test_cfg/pass2_cfg1.cfg:53: error: E_OBJ: inhno `INHNO1' is duplicated in DEF_INH
+../../test_cfg/pass2_cfg1.cfg:57: error: E_OBJ: intno `INTNO1' is duplicated in CFG_INT
+../../test_cfg/pass2_cfg1.cfg:61: error: E_OBJ: excno `CPUEXC1' is duplicated in DEF_EXC
+make: *** [kernel_cfg.timestamp] Error 1

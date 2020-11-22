@@ -1,0 +1,22 @@
+../../test_cfg/pass2_int1.cfg:14: error: E_PAR: illegal intno `INVALID_INTNO' in CFG_INT
+../../test_cfg/pass2_int1.cfg:17: error: E_RSATR: illegal intatr `0x10U' in CFG_INT of intno `INTNO1'
+../../test_cfg/pass2_int1.cfg:20: error: E_PAR: illegal intpri `TIPM_ENAALL' in CFG_INT of intno `INTNO2'
+../../test_cfg/pass2_int1.cfg:21: error: E_PAR: illegal intpri `TMIN_INTPRI - 2' in CFG_INT of intno `INTNO5'
+../../test_cfg/pass2_int1.cfg:25: error: E_OBJ: intno `INTNO_NONKERNEL' must have higher priority than TMIN_INTPRI in CFG_INT
+../../test_cfg/pass2_int1.cfg:29: error: E_OBJ: intno `INTNO_KERNEL' must have lower or equal priority to TMIN_INTPRI in CFG_INT
+../../test_cfg/pass2_int1.cfg:32: error: E_PAR: illegal inhno `INVALID_INHNO' in DEF_INH
+../../test_cfg/pass2_int1.cfg:32: error: E_RSATR: The initial assignment processor of the class in which DEF_INH of `INVALID_INHNO' is described must be the processor to which the interrupt is requested.
+../../test_cfg/pass2_int1.cfg:35: error: E_RSATR: illegal inhatr `0x10U' in DEF_INH of inhno `INHNO1'
+../../test_cfg/pass2_int1.cfg:38: error: E_OBJ: intno `65546' corresponding to inhno `INHNO3' in DEF_INH is not configured with CFG_INT
+../../test_cfg/pass2_int1.cfg:42: error: E_RSATR: inhno `INHNO_NONKERNEL' must be non-kernel interrupt in DEF_INH
+../../test_cfg/pass2_int1.cfg:46: error: E_RSATR: inhno `INHNO_KERNEL' must not be non-kernel interrupt in DEF_INH
+../../test_cfg/pass2_int1.cfg:51: error: E_OBJ: intpri `TMIN_INTPRI - 1' configured for inhno `INHNO6' must be lower or equal to TMIN_INTPRI
+../../test_cfg/pass2_int1.cfg:56: error: E_OBJ: intpri `TMIN_INTPRI' configured for inhno `INHNO7' must be higher than TMIN_INTPRI
+../../test_cfg/pass2_int1.cfg:60: error: E_RSATR: illegal isratr `0x10U' in CRE_ISR
+../../test_cfg/pass2_int1.cfg:60: error: E_OBJ: intno `INTNO1' in CRE_ISR is duplicated with inhno INHNO1
+../../test_cfg/pass2_int1.cfg:63: error: E_PAR: illegal intno `INVALID_INTNO' in CRE_ISR
+../../test_cfg/pass2_int1.cfg:63: error: E_RSATR: The assignable processors of the class in which CRE_ISR of `INVALID_INTNO' is described must be included in the set of processors to which the interrupt is requested.
+../../test_cfg/pass2_int1.cfg:66: error: E_PAR: illegal isrpri `0' in CRE_ISR
+../../test_cfg/pass2_int1.cfg:69: error: E_OBJ: intno `INTNO4' in CRE_ISR is not configured with CFG_INT
+../../test_cfg/pass2_int1.cfg:73: error: E_OBJ: intpri `TMIN_INTPRI - 1' configured for intno `INTNO8' with CFG_INT in higher than TMIN_INTPRI
+make: *** [kernel_cfg.timestamp] Error 1

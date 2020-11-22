@@ -1,0 +1,4 @@
+../../test_cfg/pass2_mbf2.cfg:15: error: E_RSATR: illegal mbfatr `0x10' in CRE_MBF of MBF1
+../../test_cfg/pass2_mbf2.cfg:18: error: E_PAR: illegal maxmsz `0' in CRE_MBF of MBF2
+../../test_cfg/pass2_mbf2.cfg:21: error: E_NOSPT: illegal mbfmb `mbfmb_MBF3' in CRE_MBF of MBF3
+make: *** [kernel_cfg.timestamp] Error 1
