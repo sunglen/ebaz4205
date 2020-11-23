@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]/home/s/ee/ebaz4205/project_1/project_1.sdk/test1/Debug/test1.elf
+	/home/s/ee/ebaz4205/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+	/home/s/ee/ebaz4205/hrp3_3.2/OBJ/EBAZ4205/SAMPLE2/hrp.elf
+}
