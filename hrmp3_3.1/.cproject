@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
-		<cconfiguration id="com.atollic.truestudio.exe.debug.toolchain.362348156">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.atollic.truestudio.exe.debug.toolchain.362348156" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+		<cconfiguration id="com.atollic.truestudio.exe.debug.toolchain.1817018100">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.atollic.truestudio.exe.debug.toolchain.1817018100" moduleId="org.eclipse.cdt.core.settings" name="Debug">
 				<externalSettings/>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -12,18 +12,18 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration buildProperties="" id="com.atollic.truestudio.exe.debug.toolchain.362348156" name="Debug" parent="org.eclipse.cdt.build.core.emptycfg">
-					<folderInfo id="com.atollic.truestudio.exe.debug.toolchain.362348156.745555711" name="/" resourcePath="">
-						<toolChain id="com.atollic.truestudio.exe.debug.toolchain.313732468" name="Atollic ARM Tools" superClass="com.atollic.truestudio.exe.debug.toolchain">
-							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.atollic.truestudio.exe.debug.toolchain.platform.918459248" isAbstract="false" name="Debug platform" osList="all" superClass="com.atollic.truestudio.exe.debug.toolchain.platform"/>
-							<builder buildPath="${workspace_loc:/hrmp3_3.1}/Debug" id="com.atollic.truestudio.mbs.builder1.1060334193" managedBuildOn="false" name="CDT Internal Builder.Debug" superClass="com.atollic.truestudio.mbs.builder1"/>
-							<tool id="com.atollic.truestudio.exe.debug.toolchain.as.1165605469" name="Assembler" superClass="com.atollic.truestudio.exe.debug.toolchain.as"/>
-							<tool id="com.atollic.truestudio.exe.debug.toolchain.gcc.1557126148" name="C Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gcc"/>
-							<tool id="com.atollic.truestudio.exe.debug.toolchain.ld.1824065716" name="C Linker" superClass="com.atollic.truestudio.exe.debug.toolchain.ld"/>
-							<tool id="com.atollic.truestudio.exe.debug.toolchain.gpp.1587461487" name="C++ Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gpp"/>
-							<tool id="com.atollic.truestudio.exe.debug.toolchain.ldcc.111739522" name="C++ Linker" superClass="com.atollic.truestudio.exe.debug.toolchain.ldcc"/>
-							<tool id="com.atollic.truestudio.ar.base.1428842922" name="Archiver" superClass="com.atollic.truestudio.ar.base"/>
-							<tool id="com.atollic.truestudio.exe.debug.toolchain.secoutput.615599730" name="Other" superClass="com.atollic.truestudio.exe.debug.toolchain.secoutput"/>
+				<configuration buildProperties="" id="com.atollic.truestudio.exe.debug.toolchain.1817018100" name="Debug" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="com.atollic.truestudio.exe.debug.toolchain.1817018100.1970942145" name="/" resourcePath="">
+						<toolChain id="com.atollic.truestudio.exe.debug.toolchain.294858274" name="Atollic ARM Tools" superClass="com.atollic.truestudio.exe.debug.toolchain">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.atollic.truestudio.exe.debug.toolchain.platform.426082374" isAbstract="false" name="Debug platform" osList="all" superClass="com.atollic.truestudio.exe.debug.toolchain.platform"/>
+							<builder buildPath="${workspace_loc:/hrmp3_3.1}/Debug" id="com.atollic.truestudio.mbs.builder1.1129665631" managedBuildOn="false" name="CDT Internal Builder.Debug" superClass="com.atollic.truestudio.mbs.builder1"/>
+							<tool id="com.atollic.truestudio.exe.debug.toolchain.as.868436846" name="Assembler" superClass="com.atollic.truestudio.exe.debug.toolchain.as"/>
+							<tool id="com.atollic.truestudio.exe.debug.toolchain.gcc.1463141429" name="C Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gcc"/>
+							<tool id="com.atollic.truestudio.exe.debug.toolchain.ld.1159452871" name="C Linker" superClass="com.atollic.truestudio.exe.debug.toolchain.ld"/>
+							<tool id="com.atollic.truestudio.exe.debug.toolchain.gpp.779257643" name="C++ Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gpp"/>
+							<tool id="com.atollic.truestudio.exe.debug.toolchain.ldcc.383333377" name="C++ Linker" superClass="com.atollic.truestudio.exe.debug.toolchain.ldcc"/>
+							<tool id="com.atollic.truestudio.ar.base.1488438555" name="Archiver" superClass="com.atollic.truestudio.ar.base"/>
+							<tool id="com.atollic.truestudio.exe.debug.toolchain.secoutput.1298719517" name="Other" superClass="com.atollic.truestudio.exe.debug.toolchain.secoutput"/>
 						</toolChain>
 					</folderInfo>
 				</configuration>
@@ -31,11 +31,11 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
 	</storageModule>
-	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="hrmp3_3.1.null.271542371" name="hrmp3_3.1"/>
-	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="hrmp3_3.1.null.93407805" name="hrmp3_3.1"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 </cproject>

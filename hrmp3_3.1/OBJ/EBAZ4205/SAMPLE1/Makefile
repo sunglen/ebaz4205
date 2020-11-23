@@ -619,15 +619,49 @@ ifeq ($(TOOL),gcc)
 	else
 		GCC_TARGET_PREFIX =
 	endif
-	CC := $(GCC_TARGET_PREFIX)gcc
-	CXX := $(GCC_TARGET_PREFIX)g++
-	AS := $(GCC_TARGET_PREFIX)as
-	LD := $(GCC_TARGET_PREFIX)ld
-	AR := $(GCC_TARGET_PREFIX)ar
-	NM := $(GCC_TARGET_PREFIX)nm
-	RANLIB := $(GCC_TARGET_PREFIX)ranlib
-	OBJCOPY := $(GCC_TARGET_PREFIX)objcopy
-	OBJDUMP := $(GCC_TARGET_PREFIX)objdump
+#
+#  Windowsの場合はフルパスにする
+#
+ifeq ($(UNAME),Windows)
+#ifneq ($(findstring $(UNAME), Windows Cygwin),)
+  #GCC_PATH_WIN = C:\TrueSTUDIO for STM32 9.3.0\ARMTools\bin
+  #GCC_PATH_WIN = D:\TrueSTUDIO for STM32 9.3.0\ARMTools\bin
+  #GCC_TARGET_PREFIX = arm-atollic-eabi-
+  GCC_PATH_WIN = C:\Program Files (x86)\GNU Tools Arm Embedded\9 2019-q4-major\bin
+  GCC_TARGET_PREFIX = arm-none-eabi-
+  CC = "$(GCC_TARGET_PREFIX)gcc"
+  CXX = "$(GCC_PATH_WIN)\$(GCC_TARGET_PREFIX)g++"
+  AS = "$(GCC_PATH_WIN)\$(GCC_TARGET_PREFIX)as"
+  LD = "$(GCC_PATH_WIN)\$(GCC_TARGET_PREFIX)ld"
+  AR = "$(GCC_PATH_WIN)\$(GCC_TARGET_PREFIX)ar"
+  NM = "$(GCC_PATH_WIN)\$(GCC_TARGET_PREFIX)nm"
+  RANLIB = "$(GCC_PATH_WIN)\$(GCC_TARGET_PREFIX)ranlib"
+  OBJCOPY = "$(GCC_PATH_WIN)\$(GCC_TARGET_PREFIX)objcopy"
+  OBJDUMP = "$(GCC_PATH_WIN)\$(GCC_TARGET_PREFIX)objdump"
+else ifeq ($(UNAME),Cygwin)
+  #GCC_PATH_WIN =  /cygdrive/c/TrueSTUDIO\ for\ STM32\ 9.3.0/ARMTools/bin/
+  GCC_TARGET_PREFIX = arm-none-eabi-
+  CC = "$(GCC_TARGET_PREFIX)gcc"
+  CXX = $(GCC_TARGET_PREFIX)g++"
+  AS = "$(GCC_TARGET_PREFIX)as"
+  LD = "$(GCC_TARGET_PREFIX)ld"
+  AR = "$(GCC_TARGET_PREFIX)ar"
+  NM = "$(GCC_TARGET_PREFIX)nm"
+  RANLIB = "$(GCC_TARGET_PREFIX)ranlib"
+  OBJCOPY = "$(GCC_TARGET_PREFIX)objcopy"
+  OBJDUMP = "$(GCC_TARGET_PREFIX)objdump"
+else
+  GCC_TARGET_PREFIX = arm-none-eabi-
+  CC = $(GCC_TARGET_PREFIX)gcc
+  CXX = $(GCC_TARGET_PREFIX)g++
+  AS = $(GCC_TARGET_PREFIX)as
+  LD = $(GCC_TARGET_PREFIX)ld
+  AR = $(GCC_TARGET_PREFIX)ar
+  NM = $(GCC_TARGET_PREFIX)nm
+  RANLIB = $(GCC_TARGET_PREFIX)ranlib
+  OBJCOPY = $(GCC_TARGET_PREFIX)objcopy
+  OBJDUMP = $(GCC_TARGET_PREFIX)objdump
+endif
 endif
 
 ifdef DEVTOOLDIR

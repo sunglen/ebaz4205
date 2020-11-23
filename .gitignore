@@ -13,6 +13,14 @@
 .Xil/
 .metadata/
 
+# Eclipse
+.project
+.cproject
+.settings/
+
+# Toppers
+gen/
+
 # Precompiled Headers
 *.gch
 *.pch

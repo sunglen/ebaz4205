@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+#
+#		パス2の生成スクリプトのターゲット依存部（CT11MPCore用）
+#
+#  $Id: target_kernel.trb 722 2019-06-08 04:25:55Z ertl-hiro $
+#
+
+#
+#  使用できる割込み番号とそれに対応する割込みハンドラ番号
+#
+$INTNO_VALID = [ *(0..47) ]
+$INHNO_VALID = $INTNO_VALID
+
+#
+#  生成スクリプトのコア依存部（チップ依存部は飛ばす）
+#
+IncludeTrb("core_kernel.trb")
+
+#
+#  時間パーティショニングとオーバランハンドラを同時に使用していないか
+#  のチェック（オーバラン機能拡張使用時のみ）
+#
+if defined?($TOPPERS_SUPPORT_OVRHDR)
+  if $cfgData[:DEF_SCY].size > 0 && $cfgData[:DEF_OVR].size() > 0
+    error("E_NOSPT: temporal partitioning functions and overrun handler" \
+						" cannot be used at the same time on this target")
+  end
+end
