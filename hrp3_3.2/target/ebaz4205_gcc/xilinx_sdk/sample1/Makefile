@@ -37,7 +37,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 # 
-#  $Id: Makefile 777 2019-10-03 14:04:54Z ertl-hiro $
+#  $Id: Makefile 650 2019-01-14 07:57:07Z ertl-hiro $
 # 
 
 #
@@ -66,7 +66,7 @@ endif
 #
 #  ソースファイルのディレクトリの定義
 #
-SRCDIR = ../../..
+SRCDIR = ../../../..
 
 #
 #  オブジェクトファイル名の拡張子の設定
@@ -178,25 +178,24 @@ endif
 CDEFS := $(CDEFS) 
 INCLUDES := -I. -I$(SRCDIR)/include $(INCLUDES) -I$(SRCDIR)
 LDFLAGS := $(LDFLAGS) 
-LIBS :=  $(LIBS) $(CXXLIBS)
+LIBS := $(LIBS) $(CXXLIBS)
 CFLAGS = $(COPTS) $(CDEFS) $(INCLUDES)
 
 #
 #  アプリケーションプログラムに関する定義
 #
-APPLNAME = tSample2
-#APPLDIRS = $(SRCDIR)/sample
-APPLDIRS = 
-APPL_CFG = tSample2.cfg
-APPL_CDL = tSample2.cdl
+APPLNAME = sample1
+APPLDIRS = $(SRCDIR)/sample
+APPL_CFG = sample1.cfg
+APPL_CDL = sample1.cdl
 
 APPL_DIRS := $(APPLDIRS) $(SRCDIR)/library
 APPL_ASMOBJS :=
 ifdef USE_CXX
-	APPL_CXXOBJS := 
+	APPL_CXXOBJS := sample1.o
 	APPL_COBJS :=
 else
-	APPL_COBJS := 
+	APPL_COBJS := sample1.o
 endif
 APPL_COBJS := $(APPL_COBJS) $(TECS_USER_COBJS) $(TECS_OUTOFDOMAIN_COBJS) \
 				log_output.o vasyslog.o t_perror.o strerror.o
@@ -382,7 +381,7 @@ CFG3_OUT_LDFLAGS := $(CFG3_OUT_LDFLAGS) -Wl,-T,$(CFG3_OUT_LDSCRIPT)
 #
 #  tecsgenからCプリプロセッサを呼び出す際のオプションの定義
 #
-TECS_CPP = $(CC) $(CDEFS) $(INCLUDES) -D TECSGEN -E
+TECS_CPP = $(CC) $(CDEFS) $(INCLUDES) $(SYSSVC_CFLAGS) -D TECSGEN -E
 
 #
 #  tecsgenの呼出し
@@ -486,7 +485,7 @@ $(APPL_ASMOBJS) $(SYSSVC_ASMOBJS) $(KERNEL_ASMOBJS) $(CFG_ASMOBJS): \
 #  特別な依存関係の定義
 #
 $(OBJDIR)/svc_table.o: omit_svc.h
-$(OBJDIR)/tBannerMain.o: $(filter-out $(OBJDIR)/tBannerMain.o,$(ALL2_OBJS)) \
+$(OBJDIR)/tBannerMain.o: $(filter-out $(OBJDIR)/tBannerMain.o,$(ALL_OBJS2)) \
 																$(LIBS_DEP)
 
 #

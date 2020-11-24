@@ -1,7 +1,7 @@
 #
 #		Makefileのターゲット依存部（ebaz4205用）
 #
-#  $Id: Makefile.target 468 2019-10-08 09:18:11Z ertl-hiro $
+#  $Id: Makefile.target 761 2019-09-30 03:18:30Z ertl-honda $
 # 
 
 #
@@ -49,7 +49,6 @@ CDEFS := $(CDEFS) -DARM_PAGE_TABLE_RATIO=2
 INCLUDES := $(INCLUDES) -I$(TARGETDIR)
 COPTS := $(COPTS) -mlittle-endian
 LDFLAGS := $(LDFLAGS) -mlittle-endian
-CDEFS := $(CDEFS) -DUSE_BYPASS_IPI_DISPATCH_HANDER
 
 #
 #  カーネルに関する定義
@@ -61,12 +60,6 @@ KERNEL_COBJS := $(KERNEL_COBJS) target_kernel_impl.o
 #  チップ依存部
 #
 include $(SRCDIR)/arch/$(CORE)_$(TOOL)/$(CHIP)/Makefile.chip
-
-#
-#  デバッガ呼び出し
-#
-db:$(OBJFILE)
-	arm-none-eabi-gdb -x $(TARGETDIR)/gdb.ini $(OBJFILE)
 
 #
 #  プラットホームの判定
@@ -117,7 +110,7 @@ endif
 #
 runq:$(OBJFILE)
 	$(QEMU) -M xilinx-zynq-a9 -semihosting -m 512M \
-		-serial null -serial mon:stdio -nographic -smp 2 -kernel $(OBJFILE)
+		-serial null -serial mon:stdio -nographic -smp 1 -kernel $(OBJFILE)
 
 #
 #  JTAGによる実行
@@ -126,7 +119,7 @@ runj:$(OBJFILE)
 	$(XSCT) -interactive $(SRCDIR)/target/ebaz4205_gcc/xilinx_sdk/jtag.tcl \
 		$(SRCDIR)/target/ebaz4205_gcc/xilinx_sdk/ebaz4205_hw/ps7_init.tcl \
 		$(OBJFILE)
-		
+
 #
 #  SDカードによる実行
 #
