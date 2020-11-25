@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
--- Date        : Sat Nov 21 21:43:31 2020
--- Host        : s-FMVNA5NE running 64-bit Ubuntu 18.04.2 LTS
+-- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+-- Date        : Wed Nov 25 13:44:45 2020
+-- Host        : LAPTOP-DAO9PET8 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               /home/s/ee/ebaz4205/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0_sim_netlist.vhdl
+--               E:/eework/ebaz4205/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0_sim_netlist.vhdl
 -- Design      : design_1_processing_system7_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -711,7 +711,7 @@ entity design_1_processing_system7_0_0_processing_system7_v5_5_processing_system
   attribute C_EMIO_GPIO_WIDTH : integer;
   attribute C_EMIO_GPIO_WIDTH of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is 64;
   attribute C_EN_EMIO_ENET0 : integer;
-  attribute C_EN_EMIO_ENET0 of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is 0;
+  attribute C_EN_EMIO_ENET0 of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is 1;
   attribute C_EN_EMIO_ENET1 : integer;
   attribute C_EN_EMIO_ENET1 of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is 0;
   attribute C_EN_EMIO_PJTAG : integer;
@@ -817,7 +817,7 @@ entity design_1_processing_system7_0_0_processing_system7_v5_5_processing_system
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is "processing_system7_v5_5_processing_system7";
   attribute POWER : string;
-  attribute POWER of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666666} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={16} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={SD} ioStandard={LVCMOS33} bidis={6} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={NAND} ioStandard={} bidis={14} ioBank={} clockFreq={100.000000} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1600.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={50} usageRate={0.5} />/>";
+  attribute POWER of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666666} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={16} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={SD} ioStandard={LVCMOS33} bidis={6} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={GigE} ioStandard={} bidis={2} ioBank={} clockFreq={125.000000} usageRate={0.5} /><IO interface={NAND} ioStandard={} bidis={14} ioBank={} clockFreq={100.000000} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1600.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={50} usageRate={0.5} />/>";
   attribute USE_TRACE_DATA_EDGE_DETECTOR : integer;
   attribute USE_TRACE_DATA_EDGE_DETECTOR of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is 0;
 end design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7;
@@ -825,6 +825,14 @@ end design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7;
 architecture STRUCTURE of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 is
   signal \<const0>\ : STD_LOGIC;
   signal \<const1>\ : STD_LOGIC;
+  signal ENET0_GMII_COL_i : STD_LOGIC;
+  signal ENET0_GMII_CRS_i : STD_LOGIC;
+  signal ENET0_GMII_RXD_i : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal ENET0_GMII_RX_DV_i : STD_LOGIC;
+  signal ENET0_GMII_RX_ER_i : STD_LOGIC;
+  signal ENET0_GMII_TXD_i : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal ENET0_GMII_TX_EN_i : STD_LOGIC;
+  signal ENET0_GMII_TX_ER_i : STD_LOGIC;
   signal ENET0_MDIO_T_n : STD_LOGIC;
   signal ENET1_MDIO_T_n : STD_LOGIC;
   signal FCLK_CLK_unbuffered : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -907,14 +915,11 @@ architecture STRUCTURE of design_1_processing_system7_0_0_processing_system7_v5_
   signal buffered_PS_PORB : STD_LOGIC;
   signal buffered_PS_SRSTB : STD_LOGIC;
   signal gpio_out_t_n : STD_LOGIC_VECTOR ( 63 downto 0 );
-  signal NLW_PS7_i_EMIOENET0GMIITXEN_UNCONNECTED : STD_LOGIC;
-  signal NLW_PS7_i_EMIOENET0GMIITXER_UNCONNECTED : STD_LOGIC;
   signal NLW_PS7_i_EMIOENET1GMIITXEN_UNCONNECTED : STD_LOGIC;
   signal NLW_PS7_i_EMIOENET1GMIITXER_UNCONNECTED : STD_LOGIC;
   signal NLW_PS7_i_EMIOPJTAGTDO_UNCONNECTED : STD_LOGIC;
   signal NLW_PS7_i_EMIOPJTAGTDTN_UNCONNECTED : STD_LOGIC;
   signal NLW_PS7_i_EMIOTRACECTL_UNCONNECTED : STD_LOGIC;
-  signal NLW_PS7_i_EMIOENET0GMIITXD_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal NLW_PS7_i_EMIOENET1GMIITXD_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal NLW_PS7_i_EMIOTRACEDATA_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal NLW_PS7_i_MAXIGP0ARCACHE_UNCONNECTED : STD_LOGIC_VECTOR ( 1 to 1 );
@@ -1055,16 +1060,6 @@ architecture STRUCTURE of design_1_processing_system7_0_0_processing_system7_v5_
   attribute BOX_TYPE of \genblk19[2].DDR_DQS_BIBUF\ : label is "PRIMITIVE";
   attribute BOX_TYPE of \genblk19[3].DDR_DQS_BIBUF\ : label is "PRIMITIVE";
 begin
-  ENET0_GMII_TXD(7) <= \<const0>\;
-  ENET0_GMII_TXD(6) <= \<const0>\;
-  ENET0_GMII_TXD(5) <= \<const0>\;
-  ENET0_GMII_TXD(4) <= \<const0>\;
-  ENET0_GMII_TXD(3) <= \<const0>\;
-  ENET0_GMII_TXD(2) <= \<const0>\;
-  ENET0_GMII_TXD(1) <= \<const0>\;
-  ENET0_GMII_TXD(0) <= \<const0>\;
-  ENET0_GMII_TX_EN <= \<const0>\;
-  ENET0_GMII_TX_ER <= \<const0>\;
   ENET1_GMII_TXD(7) <= \<const0>\;
   ENET1_GMII_TXD(6) <= \<const0>\;
   ENET1_GMII_TXD(5) <= \<const0>\;
@@ -1153,6 +1148,188 @@ DDR_WEB_BIBUF: unisim.vcomponents.BIBUF
      port map (
       IO => buffered_DDR_WEB,
       PAD => DDR_WEB
+    );
+ENET0_GMII_COL_i_reg: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_TX_CLK,
+      CE => '1',
+      D => ENET0_GMII_COL,
+      Q => ENET0_GMII_COL_i,
+      R => '0'
+    );
+ENET0_GMII_CRS_i_reg: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_TX_CLK,
+      CE => '1',
+      D => ENET0_GMII_CRS,
+      Q => ENET0_GMII_CRS_i,
+      R => '0'
+    );
+\ENET0_GMII_RXD_i_reg[0]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_RX_CLK,
+      CE => '1',
+      D => ENET0_GMII_RXD(0),
+      Q => ENET0_GMII_RXD_i(0),
+      R => '0'
+    );
+\ENET0_GMII_RXD_i_reg[1]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_RX_CLK,
+      CE => '1',
+      D => ENET0_GMII_RXD(1),
+      Q => ENET0_GMII_RXD_i(1),
+      R => '0'
+    );
+\ENET0_GMII_RXD_i_reg[2]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_RX_CLK,
+      CE => '1',
+      D => ENET0_GMII_RXD(2),
+      Q => ENET0_GMII_RXD_i(2),
+      R => '0'
+    );
+\ENET0_GMII_RXD_i_reg[3]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_RX_CLK,
+      CE => '1',
+      D => ENET0_GMII_RXD(3),
+      Q => ENET0_GMII_RXD_i(3),
+      R => '0'
+    );
+\ENET0_GMII_RXD_i_reg[4]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_RX_CLK,
+      CE => '1',
+      D => ENET0_GMII_RXD(4),
+      Q => ENET0_GMII_RXD_i(4),
+      R => '0'
+    );
+\ENET0_GMII_RXD_i_reg[5]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_RX_CLK,
+      CE => '1',
+      D => ENET0_GMII_RXD(5),
+      Q => ENET0_GMII_RXD_i(5),
+      R => '0'
+    );
+\ENET0_GMII_RXD_i_reg[6]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_RX_CLK,
+      CE => '1',
+      D => ENET0_GMII_RXD(6),
+      Q => ENET0_GMII_RXD_i(6),
+      R => '0'
+    );
+\ENET0_GMII_RXD_i_reg[7]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_RX_CLK,
+      CE => '1',
+      D => ENET0_GMII_RXD(7),
+      Q => ENET0_GMII_RXD_i(7),
+      R => '0'
+    );
+ENET0_GMII_RX_DV_i_reg: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_RX_CLK,
+      CE => '1',
+      D => ENET0_GMII_RX_DV,
+      Q => ENET0_GMII_RX_DV_i,
+      R => '0'
+    );
+ENET0_GMII_RX_ER_i_reg: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_RX_CLK,
+      CE => '1',
+      D => ENET0_GMII_RX_ER,
+      Q => ENET0_GMII_RX_ER_i,
+      R => '0'
+    );
+\ENET0_GMII_TXD_reg[0]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_TX_CLK,
+      CE => '1',
+      D => ENET0_GMII_TXD_i(0),
+      Q => ENET0_GMII_TXD(0),
+      R => '0'
+    );
+\ENET0_GMII_TXD_reg[1]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_TX_CLK,
+      CE => '1',
+      D => ENET0_GMII_TXD_i(1),
+      Q => ENET0_GMII_TXD(1),
+      R => '0'
+    );
+\ENET0_GMII_TXD_reg[2]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_TX_CLK,
+      CE => '1',
+      D => ENET0_GMII_TXD_i(2),
+      Q => ENET0_GMII_TXD(2),
+      R => '0'
+    );
+\ENET0_GMII_TXD_reg[3]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_TX_CLK,
+      CE => '1',
+      D => ENET0_GMII_TXD_i(3),
+      Q => ENET0_GMII_TXD(3),
+      R => '0'
+    );
+\ENET0_GMII_TXD_reg[4]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_TX_CLK,
+      CE => '1',
+      D => ENET0_GMII_TXD_i(4),
+      Q => ENET0_GMII_TXD(4),
+      R => '0'
+    );
+\ENET0_GMII_TXD_reg[5]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_TX_CLK,
+      CE => '1',
+      D => ENET0_GMII_TXD_i(5),
+      Q => ENET0_GMII_TXD(5),
+      R => '0'
+    );
+\ENET0_GMII_TXD_reg[6]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_TX_CLK,
+      CE => '1',
+      D => ENET0_GMII_TXD_i(6),
+      Q => ENET0_GMII_TXD(6),
+      R => '0'
+    );
+\ENET0_GMII_TXD_reg[7]\: unisim.vcomponents.FDRE
+     port map (
+      C => ENET0_GMII_TX_CLK,
+      CE => '1',
+      D => ENET0_GMII_TXD_i(7),
+      Q => ENET0_GMII_TXD(7),
+      R => '0'
+    );
+ENET0_GMII_TX_EN_reg: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ENET0_GMII_TX_CLK,
+      CE => '1',
+      D => ENET0_GMII_TX_EN_i,
+      Q => ENET0_GMII_TX_EN,
+      R => '0'
+    );
+ENET0_GMII_TX_ER_reg: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ENET0_GMII_TX_CLK,
+      CE => '1',
+      D => ENET0_GMII_TX_ER_i,
+      Q => ENET0_GMII_TX_ER,
+      R => '0'
     );
 ENET0_MDIO_T_INST_0: unisim.vcomponents.LUT1
     generic map(
@@ -1779,16 +1956,16 @@ PS7_i: unisim.vcomponents.PS7
       EMIOCAN1PHYRX => CAN1_PHY_RX,
       EMIOCAN1PHYTX => CAN1_PHY_TX,
       EMIOENET0EXTINTIN => ENET0_EXT_INTIN,
-      EMIOENET0GMIICOL => '0',
-      EMIOENET0GMIICRS => '0',
+      EMIOENET0GMIICOL => ENET0_GMII_COL_i,
+      EMIOENET0GMIICRS => ENET0_GMII_CRS_i,
       EMIOENET0GMIIRXCLK => ENET0_GMII_RX_CLK,
-      EMIOENET0GMIIRXD(7 downto 0) => B"00000000",
-      EMIOENET0GMIIRXDV => '0',
-      EMIOENET0GMIIRXER => '0',
+      EMIOENET0GMIIRXD(7 downto 0) => ENET0_GMII_RXD_i(7 downto 0),
+      EMIOENET0GMIIRXDV => ENET0_GMII_RX_DV_i,
+      EMIOENET0GMIIRXER => ENET0_GMII_RX_ER_i,
       EMIOENET0GMIITXCLK => ENET0_GMII_TX_CLK,
-      EMIOENET0GMIITXD(7 downto 0) => NLW_PS7_i_EMIOENET0GMIITXD_UNCONNECTED(7 downto 0),
-      EMIOENET0GMIITXEN => NLW_PS7_i_EMIOENET0GMIITXEN_UNCONNECTED,
-      EMIOENET0GMIITXER => NLW_PS7_i_EMIOENET0GMIITXER_UNCONNECTED,
+      EMIOENET0GMIITXD(7 downto 0) => ENET0_GMII_TXD_i(7 downto 0),
+      EMIOENET0GMIITXEN => ENET0_GMII_TX_EN_i,
+      EMIOENET0GMIITXER => ENET0_GMII_TX_ER_i,
       EMIOENET0MDIOI => ENET0_MDIO_I,
       EMIOENET0MDIOMDC => ENET0_MDIO_MDC,
       EMIOENET0MDIOO => ENET0_MDIO_O,
@@ -3359,6 +3536,21 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_processing_system7_0_0 is
   port (
+    ENET0_GMII_TX_EN : out STD_LOGIC_VECTOR ( 0 to 0 );
+    ENET0_GMII_TX_ER : out STD_LOGIC_VECTOR ( 0 to 0 );
+    ENET0_MDIO_MDC : out STD_LOGIC;
+    ENET0_MDIO_O : out STD_LOGIC;
+    ENET0_MDIO_T : out STD_LOGIC;
+    ENET0_GMII_TXD : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ENET0_GMII_COL : in STD_LOGIC;
+    ENET0_GMII_CRS : in STD_LOGIC;
+    ENET0_GMII_RX_CLK : in STD_LOGIC;
+    ENET0_GMII_RX_DV : in STD_LOGIC;
+    ENET0_GMII_RX_ER : in STD_LOGIC;
+    ENET0_GMII_TX_CLK : in STD_LOGIC;
+    ENET0_MDIO_I : in STD_LOGIC;
+    ENET0_EXT_INTIN : in STD_LOGIC;
+    ENET0_GMII_RXD : in STD_LOGIC_VECTOR ( 7 downto 0 );
     M_AXI_GP0_ARVALID : out STD_LOGIC;
     M_AXI_GP0_AWVALID : out STD_LOGIC;
     M_AXI_GP0_BREADY : out STD_LOGIC;
@@ -3447,11 +3639,6 @@ architecture STRUCTURE of design_1_processing_system7_0_0 is
   signal NLW_inst_DMA3_DAVALID_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_DMA3_DRREADY_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_DMA3_RSTN_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_ENET0_GMII_TX_EN_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_ENET0_GMII_TX_ER_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_ENET0_MDIO_MDC_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_ENET0_MDIO_O_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_ENET0_MDIO_T_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_ENET0_PTP_DELAY_REQ_RX_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_ENET0_PTP_DELAY_REQ_TX_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_ENET0_PTP_PDELAY_REQ_RX_UNCONNECTED : STD_LOGIC;
@@ -3638,7 +3825,6 @@ architecture STRUCTURE of design_1_processing_system7_0_0 is
   signal NLW_inst_DMA1_DATYPE_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_inst_DMA2_DATYPE_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_inst_DMA3_DATYPE_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal NLW_inst_ENET0_GMII_TXD_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal NLW_inst_ENET1_GMII_TXD_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal NLW_inst_EVENT_STANDBYWFE_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_inst_EVENT_STANDBYWFI_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -3735,7 +3921,7 @@ architecture STRUCTURE of design_1_processing_system7_0_0 is
   attribute C_EMIO_GPIO_WIDTH : integer;
   attribute C_EMIO_GPIO_WIDTH of inst : label is 64;
   attribute C_EN_EMIO_ENET0 : integer;
-  attribute C_EN_EMIO_ENET0 of inst : label is 0;
+  attribute C_EN_EMIO_ENET0 of inst : label is 1;
   attribute C_EN_EMIO_ENET1 : integer;
   attribute C_EN_EMIO_ENET1 of inst : label is 0;
   attribute C_EN_EMIO_PJTAG : integer;
@@ -3839,7 +4025,7 @@ architecture STRUCTURE of design_1_processing_system7_0_0 is
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of inst : label is "design_1_processing_system7_0_0.hwdef";
   attribute POWER : string;
-  attribute POWER of inst : label is "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666666} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={16} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={SD} ioStandard={LVCMOS33} bidis={6} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={NAND} ioStandard={} bidis={14} ioBank={} clockFreq={100.000000} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1600.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={50} usageRate={0.5} />/>";
+  attribute POWER of inst : label is "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666666} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={16} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={SD} ioStandard={LVCMOS33} bidis={6} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={GigE} ioStandard={} bidis={2} ioBank={} clockFreq={125.000000} usageRate={0.5} /><IO interface={NAND} ioStandard={} bidis={14} ioBank={} clockFreq={100.000000} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1600.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={50} usageRate={0.5} />/>";
   attribute USE_TRACE_DATA_EDGE_DETECTOR : integer;
   attribute USE_TRACE_DATA_EDGE_DETECTOR of inst : label is 0;
   attribute X_INTERFACE_INFO : string;
@@ -3854,8 +4040,21 @@ architecture STRUCTURE of design_1_processing_system7_0_0 is
   attribute X_INTERFACE_INFO of DDR_VRN : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO DDR_VRN";
   attribute X_INTERFACE_INFO of DDR_VRP : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO DDR_VRP";
   attribute X_INTERFACE_INFO of DDR_WEB : signal is "xilinx.com:interface:ddrx:1.0 DDR WE_N";
-  attribute X_INTERFACE_INFO of FCLK_CLK0 : signal is "xilinx.com:signal:clock:1.0 FCLK_CLK0 CLK";
+  attribute X_INTERFACE_INFO of ENET0_EXT_INTIN : signal is "xilinx.com:signal:interrupt:1.0 ENET0_EXT_INTIN INTERRUPT";
   attribute X_INTERFACE_PARAMETER : string;
+  attribute X_INTERFACE_PARAMETER of ENET0_EXT_INTIN : signal is "XIL_INTERFACENAME ENET0_EXT_INTIN, SENSITIVITY LEVEL_HIGH, PortWidth 1";
+  attribute X_INTERFACE_INFO of ENET0_GMII_COL : signal is "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_0 COL";
+  attribute X_INTERFACE_INFO of ENET0_GMII_CRS : signal is "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_0 CRS";
+  attribute X_INTERFACE_INFO of ENET0_GMII_RX_CLK : signal is "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_0 RX_CLK";
+  attribute X_INTERFACE_INFO of ENET0_GMII_RX_DV : signal is "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_0 RX_DV";
+  attribute X_INTERFACE_INFO of ENET0_GMII_RX_ER : signal is "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_0 RX_ER";
+  attribute X_INTERFACE_INFO of ENET0_GMII_TX_CLK : signal is "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_0 TX_CLK";
+  attribute X_INTERFACE_INFO of ENET0_MDIO_I : signal is "xilinx.com:interface:mdio:1.0 MDIO_ETHERNET_0 MDIO_I";
+  attribute X_INTERFACE_PARAMETER of ENET0_MDIO_I : signal is "XIL_INTERFACENAME MDIO_ETHERNET_0, CAN_DEBUG false";
+  attribute X_INTERFACE_INFO of ENET0_MDIO_MDC : signal is "xilinx.com:interface:mdio:1.0 MDIO_ETHERNET_0 MDC";
+  attribute X_INTERFACE_INFO of ENET0_MDIO_O : signal is "xilinx.com:interface:mdio:1.0 MDIO_ETHERNET_0 MDIO_O";
+  attribute X_INTERFACE_INFO of ENET0_MDIO_T : signal is "xilinx.com:interface:mdio:1.0 MDIO_ETHERNET_0 MDIO_T";
+  attribute X_INTERFACE_INFO of FCLK_CLK0 : signal is "xilinx.com:signal:clock:1.0 FCLK_CLK0 CLK";
   attribute X_INTERFACE_PARAMETER of FCLK_CLK0 : signal is "XIL_INTERFACENAME FCLK_CLK0, FREQ_HZ 50000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of FCLK_RESET0_N : signal is "xilinx.com:signal:reset:1.0 FCLK_RESET0_N RST";
   attribute X_INTERFACE_PARAMETER of FCLK_RESET0_N : signal is "XIL_INTERFACENAME FCLK_RESET0_N, POLARITY ACTIVE_LOW, INSERT_VIP 0";
@@ -3884,6 +4083,10 @@ architecture STRUCTURE of design_1_processing_system7_0_0 is
   attribute X_INTERFACE_INFO of DDR_DQS : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_P";
   attribute X_INTERFACE_PARAMETER of DDR_DQS : signal is "XIL_INTERFACENAME DDR, CAN_DEBUG false, TIMEPERIOD_PS 1250, MEMORY_TYPE COMPONENTS, DATA_WIDTH 8, CS_ENABLED true, DATA_MASK_ENABLED true, SLOT Single, MEM_ADDR_MAP ROW_COLUMN_BANK, BURST_LENGTH 8, AXI_ARBITRATION_SCHEME TDM, CAS_LATENCY 11, CAS_WRITE_LATENCY 11";
   attribute X_INTERFACE_INFO of DDR_DQS_n : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_N";
+  attribute X_INTERFACE_INFO of ENET0_GMII_RXD : signal is "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_0 RXD";
+  attribute X_INTERFACE_INFO of ENET0_GMII_TXD : signal is "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_0 TXD";
+  attribute X_INTERFACE_INFO of ENET0_GMII_TX_EN : signal is "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_0 TX_EN";
+  attribute X_INTERFACE_INFO of ENET0_GMII_TX_ER : signal is "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_0 TX_ER";
   attribute X_INTERFACE_INFO of MIO : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO";
   attribute X_INTERFACE_INFO of M_AXI_GP0_ARADDR : signal is "xilinx.com:interface:aximm:1.0 M_AXI_GP0 ARADDR";
   attribute X_INTERFACE_INFO of M_AXI_GP0_ARBURST : signal is "xilinx.com:interface:aximm:1.0 M_AXI_GP0 ARBURST";
@@ -3977,21 +4180,21 @@ inst: entity work.design_1_processing_system7_0_0_processing_system7_v5_5_proces
       DMA3_DRTYPE(1 downto 0) => B"00",
       DMA3_DRVALID => '0',
       DMA3_RSTN => NLW_inst_DMA3_RSTN_UNCONNECTED,
-      ENET0_EXT_INTIN => '0',
-      ENET0_GMII_COL => '0',
-      ENET0_GMII_CRS => '0',
-      ENET0_GMII_RXD(7 downto 0) => B"00000000",
-      ENET0_GMII_RX_CLK => '0',
-      ENET0_GMII_RX_DV => '0',
-      ENET0_GMII_RX_ER => '0',
-      ENET0_GMII_TXD(7 downto 0) => NLW_inst_ENET0_GMII_TXD_UNCONNECTED(7 downto 0),
-      ENET0_GMII_TX_CLK => '0',
-      ENET0_GMII_TX_EN => NLW_inst_ENET0_GMII_TX_EN_UNCONNECTED,
-      ENET0_GMII_TX_ER => NLW_inst_ENET0_GMII_TX_ER_UNCONNECTED,
-      ENET0_MDIO_I => '0',
-      ENET0_MDIO_MDC => NLW_inst_ENET0_MDIO_MDC_UNCONNECTED,
-      ENET0_MDIO_O => NLW_inst_ENET0_MDIO_O_UNCONNECTED,
-      ENET0_MDIO_T => NLW_inst_ENET0_MDIO_T_UNCONNECTED,
+      ENET0_EXT_INTIN => ENET0_EXT_INTIN,
+      ENET0_GMII_COL => ENET0_GMII_COL,
+      ENET0_GMII_CRS => ENET0_GMII_CRS,
+      ENET0_GMII_RXD(7 downto 0) => ENET0_GMII_RXD(7 downto 0),
+      ENET0_GMII_RX_CLK => ENET0_GMII_RX_CLK,
+      ENET0_GMII_RX_DV => ENET0_GMII_RX_DV,
+      ENET0_GMII_RX_ER => ENET0_GMII_RX_ER,
+      ENET0_GMII_TXD(7 downto 0) => ENET0_GMII_TXD(7 downto 0),
+      ENET0_GMII_TX_CLK => ENET0_GMII_TX_CLK,
+      ENET0_GMII_TX_EN => ENET0_GMII_TX_EN(0),
+      ENET0_GMII_TX_ER => ENET0_GMII_TX_ER(0),
+      ENET0_MDIO_I => ENET0_MDIO_I,
+      ENET0_MDIO_MDC => ENET0_MDIO_MDC,
+      ENET0_MDIO_O => ENET0_MDIO_O,
+      ENET0_MDIO_T => ENET0_MDIO_T,
       ENET0_PTP_DELAY_REQ_RX => NLW_inst_ENET0_PTP_DELAY_REQ_RX_UNCONNECTED,
       ENET0_PTP_DELAY_REQ_TX => NLW_inst_ENET0_PTP_DELAY_REQ_TX_UNCONNECTED,
       ENET0_PTP_PDELAY_REQ_RX => NLW_inst_ENET0_PTP_PDELAY_REQ_RX_UNCONNECTED,

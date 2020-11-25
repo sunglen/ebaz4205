@@ -1,8 +1,8 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Sat Nov 21 21:42:39 2020
-//Host        : s-FMVNA5NE running 64-bit Ubuntu 18.04.2 LTS
+//Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+//Date        : Wed Nov 25 13:43:15 2020
+//Host        : LAPTOP-DAO9PET8 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
 //Purpose     : IP block netlist
@@ -25,12 +25,20 @@ module design_1_wrapper
     DDR_0_ras_n,
     DDR_0_reset_n,
     DDR_0_we_n,
+    ENET0_GMII_RX_CLK_0,
+    ENET0_GMII_RX_DV_0,
+    ENET0_GMII_TX_CLK_0,
+    ENET0_GMII_TX_EN_0,
     FIXED_IO_0_ddr_vrn,
     FIXED_IO_0_ddr_vrp,
     FIXED_IO_0_mio,
     FIXED_IO_0_ps_clk,
     FIXED_IO_0_ps_porb,
-    FIXED_IO_0_ps_srstb);
+    FIXED_IO_0_ps_srstb,
+    MDIO_ETHERNET_0_0_mdc,
+    MDIO_ETHERNET_0_0_mdio_io,
+    enet0_gmii_rxd,
+    enet0_gmii_txd);
   inout [14:0]DDR_0_addr;
   inout [2:0]DDR_0_ba;
   inout DDR_0_cas_n;
@@ -46,12 +54,20 @@ module design_1_wrapper
   inout DDR_0_ras_n;
   inout DDR_0_reset_n;
   inout DDR_0_we_n;
+  input ENET0_GMII_RX_CLK_0;
+  input ENET0_GMII_RX_DV_0;
+  input ENET0_GMII_TX_CLK_0;
+  output [0:0]ENET0_GMII_TX_EN_0;
   inout FIXED_IO_0_ddr_vrn;
   inout FIXED_IO_0_ddr_vrp;
   inout [53:0]FIXED_IO_0_mio;
   inout FIXED_IO_0_ps_clk;
   inout FIXED_IO_0_ps_porb;
   inout FIXED_IO_0_ps_srstb;
+  output MDIO_ETHERNET_0_0_mdc;
+  inout MDIO_ETHERNET_0_0_mdio_io;
+  input [3:0]enet0_gmii_rxd;
+  output [3:0]enet0_gmii_txd;
 
   wire [14:0]DDR_0_addr;
   wire [2:0]DDR_0_ba;
@@ -68,13 +84,29 @@ module design_1_wrapper
   wire DDR_0_ras_n;
   wire DDR_0_reset_n;
   wire DDR_0_we_n;
+  wire ENET0_GMII_RX_CLK_0;
+  wire ENET0_GMII_RX_DV_0;
+  wire ENET0_GMII_TX_CLK_0;
+  wire [0:0]ENET0_GMII_TX_EN_0;
   wire FIXED_IO_0_ddr_vrn;
   wire FIXED_IO_0_ddr_vrp;
   wire [53:0]FIXED_IO_0_mio;
   wire FIXED_IO_0_ps_clk;
   wire FIXED_IO_0_ps_porb;
   wire FIXED_IO_0_ps_srstb;
+  wire MDIO_ETHERNET_0_0_mdc;
+  wire MDIO_ETHERNET_0_0_mdio_i;
+  wire MDIO_ETHERNET_0_0_mdio_io;
+  wire MDIO_ETHERNET_0_0_mdio_o;
+  wire MDIO_ETHERNET_0_0_mdio_t;
+  wire [3:0]enet0_gmii_rxd;
+  wire [3:0]enet0_gmii_txd;
 
+  IOBUF MDIO_ETHERNET_0_0_mdio_iobuf
+       (.I(MDIO_ETHERNET_0_0_mdio_o),
+        .IO(MDIO_ETHERNET_0_0_mdio_io),
+        .O(MDIO_ETHERNET_0_0_mdio_i),
+        .T(MDIO_ETHERNET_0_0_mdio_t));
   design_1 design_1_i
        (.DDR_0_addr(DDR_0_addr),
         .DDR_0_ba(DDR_0_ba),
@@ -91,10 +123,20 @@ module design_1_wrapper
         .DDR_0_ras_n(DDR_0_ras_n),
         .DDR_0_reset_n(DDR_0_reset_n),
         .DDR_0_we_n(DDR_0_we_n),
+        .ENET0_GMII_RX_CLK_0(ENET0_GMII_RX_CLK_0),
+        .ENET0_GMII_RX_DV_0(ENET0_GMII_RX_DV_0),
+        .ENET0_GMII_TX_CLK_0(ENET0_GMII_TX_CLK_0),
+        .ENET0_GMII_TX_EN_0(ENET0_GMII_TX_EN_0),
         .FIXED_IO_0_ddr_vrn(FIXED_IO_0_ddr_vrn),
         .FIXED_IO_0_ddr_vrp(FIXED_IO_0_ddr_vrp),
         .FIXED_IO_0_mio(FIXED_IO_0_mio),
         .FIXED_IO_0_ps_clk(FIXED_IO_0_ps_clk),
         .FIXED_IO_0_ps_porb(FIXED_IO_0_ps_porb),
-        .FIXED_IO_0_ps_srstb(FIXED_IO_0_ps_srstb));
+        .FIXED_IO_0_ps_srstb(FIXED_IO_0_ps_srstb),
+        .MDIO_ETHERNET_0_0_mdc(MDIO_ETHERNET_0_0_mdc),
+        .MDIO_ETHERNET_0_0_mdio_i(MDIO_ETHERNET_0_0_mdio_i),
+        .MDIO_ETHERNET_0_0_mdio_o(MDIO_ETHERNET_0_0_mdio_o),
+        .MDIO_ETHERNET_0_0_mdio_t(MDIO_ETHERNET_0_0_mdio_t),
+        .enet0_gmii_rxd(enet0_gmii_rxd),
+        .enet0_gmii_txd(enet0_gmii_txd));
 endmodule

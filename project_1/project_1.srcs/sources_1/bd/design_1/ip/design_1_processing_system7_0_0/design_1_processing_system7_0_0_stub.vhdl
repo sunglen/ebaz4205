@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
--- Date        : Sat Nov 21 21:43:30 2020
--- Host        : s-FMVNA5NE running 64-bit Ubuntu 18.04.2 LTS
+-- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+-- Date        : Wed Nov 25 13:44:45 2020
+-- Host        : LAPTOP-DAO9PET8 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               /home/s/ee/ebaz4205/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0_stub.vhdl
+--               E:/eework/ebaz4205/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0_stub.vhdl
 -- Design      : design_1_processing_system7_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z010clg400-1
@@ -14,6 +14,21 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity design_1_processing_system7_0_0 is
   Port ( 
+    ENET0_GMII_TX_EN : out STD_LOGIC_VECTOR ( 0 to 0 );
+    ENET0_GMII_TX_ER : out STD_LOGIC_VECTOR ( 0 to 0 );
+    ENET0_MDIO_MDC : out STD_LOGIC;
+    ENET0_MDIO_O : out STD_LOGIC;
+    ENET0_MDIO_T : out STD_LOGIC;
+    ENET0_GMII_TXD : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ENET0_GMII_COL : in STD_LOGIC;
+    ENET0_GMII_CRS : in STD_LOGIC;
+    ENET0_GMII_RX_CLK : in STD_LOGIC;
+    ENET0_GMII_RX_DV : in STD_LOGIC;
+    ENET0_GMII_RX_ER : in STD_LOGIC;
+    ENET0_GMII_TX_CLK : in STD_LOGIC;
+    ENET0_MDIO_I : in STD_LOGIC;
+    ENET0_EXT_INTIN : in STD_LOGIC;
+    ENET0_GMII_RXD : in STD_LOGIC_VECTOR ( 7 downto 0 );
     M_AXI_GP0_ARVALID : out STD_LOGIC;
     M_AXI_GP0_AWVALID : out STD_LOGIC;
     M_AXI_GP0_BREADY : out STD_LOGIC;
@@ -84,7 +99,7 @@ architecture stub of design_1_processing_system7_0_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "M_AXI_GP0_ARVALID,M_AXI_GP0_AWVALID,M_AXI_GP0_BREADY,M_AXI_GP0_RREADY,M_AXI_GP0_WLAST,M_AXI_GP0_WVALID,M_AXI_GP0_ARID[11:0],M_AXI_GP0_AWID[11:0],M_AXI_GP0_WID[11:0],M_AXI_GP0_ARBURST[1:0],M_AXI_GP0_ARLOCK[1:0],M_AXI_GP0_ARSIZE[2:0],M_AXI_GP0_AWBURST[1:0],M_AXI_GP0_AWLOCK[1:0],M_AXI_GP0_AWSIZE[2:0],M_AXI_GP0_ARPROT[2:0],M_AXI_GP0_AWPROT[2:0],M_AXI_GP0_ARADDR[31:0],M_AXI_GP0_AWADDR[31:0],M_AXI_GP0_WDATA[31:0],M_AXI_GP0_ARCACHE[3:0],M_AXI_GP0_ARLEN[3:0],M_AXI_GP0_ARQOS[3:0],M_AXI_GP0_AWCACHE[3:0],M_AXI_GP0_AWLEN[3:0],M_AXI_GP0_AWQOS[3:0],M_AXI_GP0_WSTRB[3:0],M_AXI_GP0_ACLK,M_AXI_GP0_ARREADY,M_AXI_GP0_AWREADY,M_AXI_GP0_BVALID,M_AXI_GP0_RLAST,M_AXI_GP0_RVALID,M_AXI_GP0_WREADY,M_AXI_GP0_BID[11:0],M_AXI_GP0_RID[11:0],M_AXI_GP0_BRESP[1:0],M_AXI_GP0_RRESP[1:0],M_AXI_GP0_RDATA[31:0],FCLK_CLK0,FCLK_RESET0_N,MIO[53:0],DDR_CAS_n,DDR_CKE,DDR_Clk_n,DDR_Clk,DDR_CS_n,DDR_DRSTB,DDR_ODT,DDR_RAS_n,DDR_WEB,DDR_BankAddr[2:0],DDR_Addr[14:0],DDR_VRN,DDR_VRP,DDR_DM[3:0],DDR_DQ[31:0],DDR_DQS_n[3:0],DDR_DQS[3:0],PS_SRSTB,PS_CLK,PS_PORB";
+attribute black_box_pad_pin of stub : architecture is "ENET0_GMII_TX_EN[0:0],ENET0_GMII_TX_ER[0:0],ENET0_MDIO_MDC,ENET0_MDIO_O,ENET0_MDIO_T,ENET0_GMII_TXD[7:0],ENET0_GMII_COL,ENET0_GMII_CRS,ENET0_GMII_RX_CLK,ENET0_GMII_RX_DV,ENET0_GMII_RX_ER,ENET0_GMII_TX_CLK,ENET0_MDIO_I,ENET0_EXT_INTIN,ENET0_GMII_RXD[7:0],M_AXI_GP0_ARVALID,M_AXI_GP0_AWVALID,M_AXI_GP0_BREADY,M_AXI_GP0_RREADY,M_AXI_GP0_WLAST,M_AXI_GP0_WVALID,M_AXI_GP0_ARID[11:0],M_AXI_GP0_AWID[11:0],M_AXI_GP0_WID[11:0],M_AXI_GP0_ARBURST[1:0],M_AXI_GP0_ARLOCK[1:0],M_AXI_GP0_ARSIZE[2:0],M_AXI_GP0_AWBURST[1:0],M_AXI_GP0_AWLOCK[1:0],M_AXI_GP0_AWSIZE[2:0],M_AXI_GP0_ARPROT[2:0],M_AXI_GP0_AWPROT[2:0],M_AXI_GP0_ARADDR[31:0],M_AXI_GP0_AWADDR[31:0],M_AXI_GP0_WDATA[31:0],M_AXI_GP0_ARCACHE[3:0],M_AXI_GP0_ARLEN[3:0],M_AXI_GP0_ARQOS[3:0],M_AXI_GP0_AWCACHE[3:0],M_AXI_GP0_AWLEN[3:0],M_AXI_GP0_AWQOS[3:0],M_AXI_GP0_WSTRB[3:0],M_AXI_GP0_ACLK,M_AXI_GP0_ARREADY,M_AXI_GP0_AWREADY,M_AXI_GP0_BVALID,M_AXI_GP0_RLAST,M_AXI_GP0_RVALID,M_AXI_GP0_WREADY,M_AXI_GP0_BID[11:0],M_AXI_GP0_RID[11:0],M_AXI_GP0_BRESP[1:0],M_AXI_GP0_RRESP[1:0],M_AXI_GP0_RDATA[31:0],FCLK_CLK0,FCLK_RESET0_N,MIO[53:0],DDR_CAS_n,DDR_CKE,DDR_Clk_n,DDR_Clk,DDR_CS_n,DDR_DRSTB,DDR_ODT,DDR_RAS_n,DDR_WEB,DDR_BankAddr[2:0],DDR_Addr[14:0],DDR_VRN,DDR_VRP,DDR_DM[3:0],DDR_DQ[31:0],DDR_DQS_n[3:0],DDR_DQS[3:0],PS_SRSTB,PS_CLK,PS_PORB";
 attribute X_CORE_INFO : string;
 attribute X_CORE_INFO of stub : architecture is "processing_system7_v5_5_processing_system7,Vivado 2019.1";
 begin

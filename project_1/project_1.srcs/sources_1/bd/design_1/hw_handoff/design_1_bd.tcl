@@ -159,8 +159,16 @@ proc create_root_design { parentCell } {
 
   set FIXED_IO_0 [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO_0 ]
 
+  set MDIO_ETHERNET_0_0 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:mdio_rtl:1.0 MDIO_ETHERNET_0_0 ]
+
 
   # Create ports
+  set ENET0_GMII_RX_CLK_0 [ create_bd_port -dir I -type clk ENET0_GMII_RX_CLK_0 ]
+  set ENET0_GMII_RX_DV_0 [ create_bd_port -dir I ENET0_GMII_RX_DV_0 ]
+  set ENET0_GMII_TX_CLK_0 [ create_bd_port -dir I -type clk ENET0_GMII_TX_CLK_0 ]
+  set ENET0_GMII_TX_EN_0 [ create_bd_port -dir O -from 0 -to 0 ENET0_GMII_TX_EN_0 ]
+  set enet0_gmii_rxd [ create_bd_port -dir I -from 3 -to 0 enet0_gmii_rxd ]
+  set enet0_gmii_txd [ create_bd_port -dir O -from 3 -to 0 enet0_gmii_txd ]
 
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
@@ -168,7 +176,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_ACT_APU_PERIPHERAL_FREQMHZ {666.666687} \
    CONFIG.PCW_ACT_CAN_PERIPHERAL_FREQMHZ {10.000000} \
    CONFIG.PCW_ACT_DCI_PERIPHERAL_FREQMHZ {10.158730} \
-   CONFIG.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ {125.000000} \
    CONFIG.PCW_ACT_ENET1_PERIPHERAL_FREQMHZ {10.000000} \
    CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {50.000000} \
    CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {10.000000} \
@@ -203,10 +211,21 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_DDR_DDR_PLL_FREQMHZ {1066.667} \
    CONFIG.PCW_DDR_PERIPHERAL_DIVISOR0 {2} \
    CONFIG.PCW_DDR_RAM_HIGHADDR {0x0FFFFFFF} \
+   CONFIG.PCW_ENET0_ENET0_IO {EMIO} \
+   CONFIG.PCW_ENET0_GRP_MDIO_ENABLE {1} \
+   CONFIG.PCW_ENET0_GRP_MDIO_IO {EMIO} \
+   CONFIG.PCW_ENET0_PERIPHERAL_CLKSRC {External} \
    CONFIG.PCW_ENET0_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_ENET0_PERIPHERAL_DIVISOR1 {1} \
+   CONFIG.PCW_ENET0_PERIPHERAL_ENABLE {1} \
+   CONFIG.PCW_ENET0_PERIPHERAL_FREQMHZ {1000 Mbps} \
+   CONFIG.PCW_ENET0_RESET_ENABLE {0} \
    CONFIG.PCW_ENET1_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_ENET1_PERIPHERAL_DIVISOR1 {1} \
+   CONFIG.PCW_ENET1_RESET_ENABLE {0} \
+   CONFIG.PCW_ENET_RESET_ENABLE {0} \
+   CONFIG.PCW_EN_EMIO_ENET0 {1} \
+   CONFIG.PCW_EN_ENET0 {1} \
    CONFIG.PCW_EN_SDIO0 {1} \
    CONFIG.PCW_EN_SMC {1} \
    CONFIG.PCW_EN_UART1 {1} \
@@ -371,12 +390,36 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_UIPARAM_DDR_T_RP {7} \
  ] $processing_system7_0
 
+  # Create instance: xlconcat_0, and set properties
+  set xlconcat_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0 ]
+  set_property -dict [ list \
+   CONFIG.IN0_WIDTH {4} \
+   CONFIG.IN1_WIDTH {4} \
+ ] $xlconcat_0
+
+  # Create instance: xlconcat_1, and set properties
+  set xlconcat_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_1 ]
+  set_property -dict [ list \
+   CONFIG.IN0_WIDTH {4} \
+   CONFIG.IN1_WIDTH {1} \
+   CONFIG.NUM_PORTS {1} \
+ ] $xlconcat_1
+
   # Create interface connections
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR_0] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO_0] [get_bd_intf_pins processing_system7_0/FIXED_IO]
+  connect_bd_intf_net -intf_net processing_system7_0_MDIO_ETHERNET_0 [get_bd_intf_ports MDIO_ETHERNET_0_0] [get_bd_intf_pins processing_system7_0/MDIO_ETHERNET_0]
 
   # Create port connections
+  connect_bd_net -net ENET0_GMII_RX_CLK_0_1 [get_bd_ports ENET0_GMII_RX_CLK_0] [get_bd_pins processing_system7_0/ENET0_GMII_RX_CLK]
+  connect_bd_net -net ENET0_GMII_RX_DV_0_1 [get_bd_ports ENET0_GMII_RX_DV_0] [get_bd_pins processing_system7_0/ENET0_GMII_RX_DV]
+  connect_bd_net -net ENET0_GMII_TX_CLK_0_1 [get_bd_ports ENET0_GMII_TX_CLK_0] [get_bd_pins processing_system7_0/ENET0_GMII_TX_CLK]
+  connect_bd_net -net In0_0_1 [get_bd_ports enet0_gmii_rxd] [get_bd_pins xlconcat_0/In0]
+  connect_bd_net -net processing_system7_0_ENET0_GMII_TXD [get_bd_pins processing_system7_0/ENET0_GMII_TXD] [get_bd_pins xlconcat_1/In0]
+  connect_bd_net -net processing_system7_0_ENET0_GMII_TX_EN [get_bd_ports ENET0_GMII_TX_EN_0] [get_bd_pins processing_system7_0/ENET0_GMII_TX_EN]
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK]
+  connect_bd_net -net xlconcat_0_dout [get_bd_pins processing_system7_0/ENET0_GMII_RXD] [get_bd_pins xlconcat_0/dout]
+  connect_bd_net -net xlconcat_1_dout [get_bd_ports enet0_gmii_txd] [get_bd_pins xlconcat_1/dout]
 
   # Create address segments
 

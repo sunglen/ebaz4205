@@ -551,7 +551,7 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ACT_CAN1_PERIPHERAL_FREQMHZ">23.8095</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ACT_CAN_PERIPHERAL_FREQMHZ">10.000000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ACT_DCI_PERIPHERAL_FREQMHZ">10.158730</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ">10.000000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ">125.000000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ACT_ENET1_PERIPHERAL_FREQMHZ">10.000000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ">50.000000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ">10.000000</spirit:configurableElementValue>
@@ -644,14 +644,14 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_DUAL_PARALLEL_QSPI_DATA_MODE">&lt;Select></spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_DUAL_STACK_QSPI_DATA_MODE">&lt;Select></spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_BASEADDR">0xE000B000</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_ENET0_IO">&lt;Select></spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_GRP_MDIO_ENABLE">0</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_GRP_MDIO_IO">&lt;Select></spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_ENET0_IO">EMIO</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_GRP_MDIO_ENABLE">1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_GRP_MDIO_IO">EMIO</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_HIGHADDR">0xE000BFFF</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_PERIPHERAL_CLKSRC">IO PLL</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_PERIPHERAL_CLKSRC">External</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_PERIPHERAL_DIVISOR0">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_PERIPHERAL_DIVISOR1">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_PERIPHERAL_ENABLE">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_PERIPHERAL_FREQMHZ">1000 Mbps</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_RESET_ENABLE">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_ENET0_RESET_IO">&lt;Select></spirit:configurableElementValue>
@@ -686,7 +686,7 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_EMIO_CAN1">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_EMIO_CD_SDIO0">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_EMIO_CD_SDIO1">0</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_EMIO_ENET0">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_EMIO_ENET0">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_EMIO_ENET1">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_EMIO_GPIO">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_EMIO_I2C0">0</spirit:configurableElementValue>
@@ -707,7 +707,7 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_EMIO_WDT">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_EMIO_WP_SDIO0">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_EMIO_WP_SDIO1">0</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_ENET0">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_ENET0">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_ENET1">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_GPIO">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PCW_EN_I2C0">0</spirit:configurableElementValue>
@@ -1522,10 +1522,21 @@ igned#unassigned#unassigned#unassigned#unassigned</spirit:configurableElementVal
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_DDR_DDR_PLL_FREQMHZ" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_DDR_PERIPHERAL_DIVISOR0" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_DDR_RAM_HIGHADDR" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET0_ENET0_IO" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET0_GRP_MDIO_ENABLE" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET0_GRP_MDIO_IO" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET0_PERIPHERAL_CLKSRC" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET0_PERIPHERAL_DIVISOR0" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET0_PERIPHERAL_DIVISOR1" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET0_PERIPHERAL_ENABLE" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET0_PERIPHERAL_FREQMHZ" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET0_RESET_ENABLE" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET1_PERIPHERAL_DIVISOR0" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET1_PERIPHERAL_DIVISOR1" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET1_RESET_ENABLE" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_ENET_RESET_ENABLE" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_EN_EMIO_ENET0" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_EN_ENET0" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_EN_SDIO0" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_EN_SMC" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PCW_EN_UART1" xilinx:valueSource="user"/>

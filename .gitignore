@@ -12,6 +12,7 @@
 *.[Cc]ache/
 .Xil/
 .metadata/
+*.jou
 
 # Eclipse
 .project

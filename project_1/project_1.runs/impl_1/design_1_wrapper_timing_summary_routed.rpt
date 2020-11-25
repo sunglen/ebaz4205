@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Sat Nov 21 21:49:01 2020
-| Host         : s-FMVNA5NE running 64-bit Ubuntu 18.04.2 LTS
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Nov 25 14:12:54 2020
+| Host         : LAPTOP-DAO9PET8 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file design_1_wrapper_timing_summary_routed.rpt -pb design_1_wrapper_timing_summary_routed.pb -rpx design_1_wrapper_timing_summary_routed.rpx -warn_on_violation
 | Design       : design_1_wrapper
 | Device       : 7z010-clg400
@@ -53,7 +53,9 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 0 register/latch pins with no clock.
+ There are 6 register/latch pins with no clock driven by root clock pin: ENET0_GMII_RX_CLK_0 (HIGH)
+
+ There are 6 register/latch pins with no clock driven by root clock pin: ENET0_GMII_TX_CLK_0 (HIGH)
 
 
 2. checking constant_clock
@@ -68,21 +70,21 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 0 pins that are not constrained for maximum delay.
+ There are 15 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
 5. checking no_input_delay
 --------------------------
- There are 0 input ports with no input delay specified.
+ There are 5 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
 6. checking no_output_delay
 ---------------------------
- There are 0 ports with no output delay specified.
+ There are 5 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -194,8 +196,8 @@ Waveform(ns):       { 0.000 10.000 }
 Period(ns):         20.000
 Sources:            { design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0] }
 
-Check Type  Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location        Pin
-Min Period  n/a     BUFG/I   n/a            2.155         20.000      17.845     BUFGCTRL_X0Y15  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
+Check Type  Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
+Min Period  n/a     BUFG/I   n/a            2.155         20.000      17.845     BUFGCTRL_X0Y0  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
 
 
 
