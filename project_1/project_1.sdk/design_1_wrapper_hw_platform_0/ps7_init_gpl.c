@@ -276,6 +276,28 @@ unsigned long ps7_clock_init_data_3_0[] = {
     // .. 
     EMIT_MASKWRITE(0XF8000128, 0x03F03F01U ,0x00700F01U),
     // .. CLKACT = 0x1
+    // .. ==> 0XF8000138[0:0] = 0x00000001U
+    // ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. SRCSEL = 0x1
+    // .. ==> 0XF8000138[4:4] = 0x00000001U
+    // ..     ==> MASK : 0x00000010U    VAL : 0x00000010U
+    // .. 
+    EMIT_MASKWRITE(0XF8000138, 0x00000011U ,0x00000011U),
+    // .. CLKACT = 0x1
+    // .. ==> 0XF8000140[0:0] = 0x00000001U
+    // ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. SRCSEL = 0x4
+    // .. ==> 0XF8000140[6:4] = 0x00000004U
+    // ..     ==> MASK : 0x00000070U    VAL : 0x00000040U
+    // .. DIVISOR = 0x1
+    // .. ==> 0XF8000140[13:8] = 0x00000001U
+    // ..     ==> MASK : 0x00003F00U    VAL : 0x00000100U
+    // .. DIVISOR1 = 0x1
+    // .. ==> 0XF8000140[25:20] = 0x00000001U
+    // ..     ==> MASK : 0x03F00000U    VAL : 0x00100000U
+    // .. 
+    EMIT_MASKWRITE(0XF8000140, 0x03F03F71U ,0x00100141U),
+    // .. CLKACT = 0x1
     // .. ==> 0XF8000148[0:0] = 0x00000001U
     // ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
     // .. SRCSEL = 0x0
@@ -352,9 +374,9 @@ unsigned long ps7_clock_init_data_3_0[] = {
     // .. .. USB1_CPU_1XCLKACT = 0x1
     // .. .. ==> 0XF800012C[3:3] = 0x00000001U
     // .. ..     ==> MASK : 0x00000008U    VAL : 0x00000008U
-    // .. .. GEM0_CPU_1XCLKACT = 0x0
-    // .. .. ==> 0XF800012C[6:6] = 0x00000000U
-    // .. ..     ==> MASK : 0x00000040U    VAL : 0x00000000U
+    // .. .. GEM0_CPU_1XCLKACT = 0x1
+    // .. .. ==> 0XF800012C[6:6] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000040U    VAL : 0x00000040U
     // .. .. GEM1_CPU_1XCLKACT = 0x0
     // .. .. ==> 0XF800012C[7:7] = 0x00000000U
     // .. ..     ==> MASK : 0x00000080U    VAL : 0x00000000U
@@ -398,7 +420,7 @@ unsigned long ps7_clock_init_data_3_0[] = {
     // .. .. ==> 0XF800012C[24:24] = 0x00000001U
     // .. ..     ==> MASK : 0x01000000U    VAL : 0x01000000U
     // .. .. 
-    EMIT_MASKWRITE(0XF800012C, 0x01FFCCCDU ,0x016C040DU),
+    EMIT_MASKWRITE(0XF800012C, 0x01FFCCCDU ,0x016C044DU),
     // .. FINISH: CLOCK CONTROL SLCR REGISTERS
     // .. START: THIS SHOULD BE BLANK
     // .. FINISH: THIS SHOULD BE BLANK
@@ -3228,6 +3250,28 @@ unsigned long ps7_clock_init_data_2_0[] = {
     // .. 
     EMIT_MASKWRITE(0XF8000128, 0x03F03F01U ,0x00700F01U),
     // .. CLKACT = 0x1
+    // .. ==> 0XF8000138[0:0] = 0x00000001U
+    // ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. SRCSEL = 0x1
+    // .. ==> 0XF8000138[4:4] = 0x00000001U
+    // ..     ==> MASK : 0x00000010U    VAL : 0x00000010U
+    // .. 
+    EMIT_MASKWRITE(0XF8000138, 0x00000011U ,0x00000011U),
+    // .. CLKACT = 0x1
+    // .. ==> 0XF8000140[0:0] = 0x00000001U
+    // ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. SRCSEL = 0x4
+    // .. ==> 0XF8000140[6:4] = 0x00000004U
+    // ..     ==> MASK : 0x00000070U    VAL : 0x00000040U
+    // .. DIVISOR = 0x1
+    // .. ==> 0XF8000140[13:8] = 0x00000001U
+    // ..     ==> MASK : 0x00003F00U    VAL : 0x00000100U
+    // .. DIVISOR1 = 0x1
+    // .. ==> 0XF8000140[25:20] = 0x00000001U
+    // ..     ==> MASK : 0x03F00000U    VAL : 0x00100000U
+    // .. 
+    EMIT_MASKWRITE(0XF8000140, 0x03F03F71U ,0x00100141U),
+    // .. CLKACT = 0x1
     // .. ==> 0XF8000148[0:0] = 0x00000001U
     // ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
     // .. SRCSEL = 0x0
@@ -3304,9 +3348,9 @@ unsigned long ps7_clock_init_data_2_0[] = {
     // .. .. USB1_CPU_1XCLKACT = 0x1
     // .. .. ==> 0XF800012C[3:3] = 0x00000001U
     // .. ..     ==> MASK : 0x00000008U    VAL : 0x00000008U
-    // .. .. GEM0_CPU_1XCLKACT = 0x0
-    // .. .. ==> 0XF800012C[6:6] = 0x00000000U
-    // .. ..     ==> MASK : 0x00000040U    VAL : 0x00000000U
+    // .. .. GEM0_CPU_1XCLKACT = 0x1
+    // .. .. ==> 0XF800012C[6:6] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000040U    VAL : 0x00000040U
     // .. .. GEM1_CPU_1XCLKACT = 0x0
     // .. .. ==> 0XF800012C[7:7] = 0x00000000U
     // .. ..     ==> MASK : 0x00000080U    VAL : 0x00000000U
@@ -3350,7 +3394,7 @@ unsigned long ps7_clock_init_data_2_0[] = {
     // .. .. ==> 0XF800012C[24:24] = 0x00000001U
     // .. ..     ==> MASK : 0x01000000U    VAL : 0x01000000U
     // .. .. 
-    EMIT_MASKWRITE(0XF800012C, 0x01FFCCCDU ,0x016C040DU),
+    EMIT_MASKWRITE(0XF800012C, 0x01FFCCCDU ,0x016C044DU),
     // .. FINISH: CLOCK CONTROL SLCR REGISTERS
     // .. START: THIS SHOULD BE BLANK
     // .. FINISH: THIS SHOULD BE BLANK
@@ -6333,6 +6377,28 @@ unsigned long ps7_clock_init_data_1_0[] = {
     // .. 
     EMIT_MASKWRITE(0XF8000128, 0x03F03F01U ,0x00700F01U),
     // .. CLKACT = 0x1
+    // .. ==> 0XF8000138[0:0] = 0x00000001U
+    // ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. SRCSEL = 0x1
+    // .. ==> 0XF8000138[4:4] = 0x00000001U
+    // ..     ==> MASK : 0x00000010U    VAL : 0x00000010U
+    // .. 
+    EMIT_MASKWRITE(0XF8000138, 0x00000011U ,0x00000011U),
+    // .. CLKACT = 0x1
+    // .. ==> 0XF8000140[0:0] = 0x00000001U
+    // ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. SRCSEL = 0x4
+    // .. ==> 0XF8000140[6:4] = 0x00000004U
+    // ..     ==> MASK : 0x00000070U    VAL : 0x00000040U
+    // .. DIVISOR = 0x1
+    // .. ==> 0XF8000140[13:8] = 0x00000001U
+    // ..     ==> MASK : 0x00003F00U    VAL : 0x00000100U
+    // .. DIVISOR1 = 0x1
+    // .. ==> 0XF8000140[25:20] = 0x00000001U
+    // ..     ==> MASK : 0x03F00000U    VAL : 0x00100000U
+    // .. 
+    EMIT_MASKWRITE(0XF8000140, 0x03F03F71U ,0x00100141U),
+    // .. CLKACT = 0x1
     // .. ==> 0XF8000148[0:0] = 0x00000001U
     // ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
     // .. SRCSEL = 0x0
@@ -6409,9 +6475,9 @@ unsigned long ps7_clock_init_data_1_0[] = {
     // .. .. USB1_CPU_1XCLKACT = 0x1
     // .. .. ==> 0XF800012C[3:3] = 0x00000001U
     // .. ..     ==> MASK : 0x00000008U    VAL : 0x00000008U
-    // .. .. GEM0_CPU_1XCLKACT = 0x0
-    // .. .. ==> 0XF800012C[6:6] = 0x00000000U
-    // .. ..     ==> MASK : 0x00000040U    VAL : 0x00000000U
+    // .. .. GEM0_CPU_1XCLKACT = 0x1
+    // .. .. ==> 0XF800012C[6:6] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000040U    VAL : 0x00000040U
     // .. .. GEM1_CPU_1XCLKACT = 0x0
     // .. .. ==> 0XF800012C[7:7] = 0x00000000U
     // .. ..     ==> MASK : 0x00000080U    VAL : 0x00000000U
@@ -6455,7 +6521,7 @@ unsigned long ps7_clock_init_data_1_0[] = {
     // .. .. ==> 0XF800012C[24:24] = 0x00000001U
     // .. ..     ==> MASK : 0x01000000U    VAL : 0x01000000U
     // .. .. 
-    EMIT_MASKWRITE(0XF800012C, 0x01FFCCCDU ,0x016C040DU),
+    EMIT_MASKWRITE(0XF800012C, 0x01FFCCCDU ,0x016C044DU),
     // .. FINISH: CLOCK CONTROL SLCR REGISTERS
     // .. START: THIS SHOULD BE BLANK
     // .. FINISH: THIS SHOULD BE BLANK
