@@ -334,6 +334,13 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_MIO_9_SLEW {slow} \
    CONFIG.PCW_MIO_TREE_PERIPHERALS {NAND Flash#unassigned#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#UART 1#UART 1#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned} \
    CONFIG.PCW_MIO_TREE_SIGNALS {cs#unassigned#ale#we_b#data[2]#data[0]#data[1]#cle#re_b#data[4]#data[5]#data[6]#data[7]#data[3]#busy#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#tx#rx#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#clk#cmd#data[0]#data[1]#data[2]#data[3]#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned} \
+   CONFIG.PCW_NAND_CYCLES_T_AR {15} \
+   CONFIG.PCW_NAND_CYCLES_T_CLR {15} \
+   CONFIG.PCW_NAND_CYCLES_T_RC {30} \
+   CONFIG.PCW_NAND_CYCLES_T_REA {5} \
+   CONFIG.PCW_NAND_CYCLES_T_RR {25} \
+   CONFIG.PCW_NAND_CYCLES_T_WC {30} \
+   CONFIG.PCW_NAND_CYCLES_T_WP {15} \
    CONFIG.PCW_NAND_GRP_D8_ENABLE {0} \
    CONFIG.PCW_NAND_NAND_IO {MIO 0 2.. 14} \
    CONFIG.PCW_NAND_PERIPHERAL_ENABLE {1} \

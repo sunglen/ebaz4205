@@ -464,6 +464,27 @@
           "PCW_MIO_TREE_SIGNALS": {
             "value": "cs#unassigned#ale#we_b#data[2]#data[0]#data[1]#cle#re_b#data[4]#data[5]#data[6]#data[7]#data[3]#busy#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#tx#rx#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#clk#cmd#data[0]#data[1]#data[2]#data[3]#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned"
           },
+          "PCW_NAND_CYCLES_T_AR": {
+            "value": "15"
+          },
+          "PCW_NAND_CYCLES_T_CLR": {
+            "value": "15"
+          },
+          "PCW_NAND_CYCLES_T_RC": {
+            "value": "30"
+          },
+          "PCW_NAND_CYCLES_T_REA": {
+            "value": "5"
+          },
+          "PCW_NAND_CYCLES_T_RR": {
+            "value": "25"
+          },
+          "PCW_NAND_CYCLES_T_WC": {
+            "value": "30"
+          },
+          "PCW_NAND_CYCLES_T_WP": {
+            "value": "15"
+          },
           "PCW_NAND_GRP_D8_ENABLE": {
             "value": "0"
           },
@@ -558,12 +579,6 @@
       }
     },
     "interface_nets": {
-      "processing_system7_0_DDR": {
-        "interface_ports": [
-          "DDR_0",
-          "processing_system7_0/DDR"
-        ]
-      },
       "processing_system7_0_MDIO_ETHERNET_0": {
         "interface_ports": [
           "MDIO_ETHERNET_0_0",
@@ -574,6 +589,12 @@
         "interface_ports": [
           "FIXED_IO_0",
           "processing_system7_0/FIXED_IO"
+        ]
+      },
+      "processing_system7_0_DDR": {
+        "interface_ports": [
+          "DDR_0",
+          "processing_system7_0/DDR"
         ]
       }
     },
