@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Nov 28 02:14:58 2020" VIVADOVERSION="2019.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Nov 30 23:30:28 2020" VIVADOVERSION="2019.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -32,6 +32,56 @@
     <PORT DIR="O" LEFT="3" NAME="enet0_gmii_txd" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_1_dout">
       <CONNECTIONS>
         <CONNECTION INSTANCE="xlconcat_1" PORT="dout"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="MDIO_ETHERNET_0_0_mdc" SIGIS="clk" SIGNAME="processing_system7_0_ENET0_MDIO_MDC">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_MDIO_MDC"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="MDIO_ETHERNET_0_0_mdio_o" SIGIS="undef" SIGNAME="processing_system7_0_ENET0_MDIO_O">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_MDIO_O"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="MDIO_ETHERNET_0_0_mdio_t" SIGIS="undef" SIGNAME="processing_system7_0_ENET0_MDIO_T">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_MDIO_T"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="MDIO_ETHERNET_0_0_mdio_i" SIGIS="undef" SIGNAME="processing_system7_0_ENET0_MDIO_I">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_MDIO_I"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" LEFT="53" NAME="FIXED_IO_0_mio" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_MIO">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="MIO"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ddr_vrn" SIGIS="undef" SIGNAME="processing_system7_0_DDR_VRN">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_VRN"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ddr_vrp" SIGIS="undef" SIGNAME="processing_system7_0_DDR_VRP">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_VRP"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ps_srstb" SIGIS="undef" SIGNAME="processing_system7_0_PS_SRSTB">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_SRSTB"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ps_clk" SIGIS="undef" SIGNAME="processing_system7_0_PS_CLK">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_CLK"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ps_porb" SIGIS="undef" SIGNAME="processing_system7_0_PS_PORB">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_PORB"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="IO" NAME="DDR_0_cas_n" SIGIS="undef" SIGNAME="processing_system7_0_DDR_CAS_n">
@@ -109,54 +159,19 @@
         <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_DQS"/>
       </CONNECTIONS>
     </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="MDIO_ETHERNET_0_0_mdc" SIGIS="clk" SIGNAME="processing_system7_0_ENET0_MDIO_MDC">
+    <PORT DIR="I" LEFT="1" NAME="GPIO_0_0_tri_i" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_GPIO_I">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_MDIO_MDC"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="GPIO_I"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="MDIO_ETHERNET_0_0_mdio_o" SIGIS="undef" SIGNAME="processing_system7_0_ENET0_MDIO_O">
+    <PORT DIR="O" LEFT="1" NAME="GPIO_0_0_tri_o" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_GPIO_O">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_MDIO_O"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="GPIO_O"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="MDIO_ETHERNET_0_0_mdio_t" SIGIS="undef" SIGNAME="processing_system7_0_ENET0_MDIO_T">
+    <PORT DIR="O" LEFT="1" NAME="GPIO_0_0_tri_t" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_GPIO_T">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_MDIO_T"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="MDIO_ETHERNET_0_0_mdio_i" SIGIS="undef" SIGNAME="processing_system7_0_ENET0_MDIO_I">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_MDIO_I"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" LEFT="53" NAME="FIXED_IO_0_mio" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_MIO">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="MIO"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ddr_vrn" SIGIS="undef" SIGNAME="processing_system7_0_DDR_VRN">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_VRN"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ddr_vrp" SIGIS="undef" SIGNAME="processing_system7_0_DDR_VRP">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_VRP"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ps_srstb" SIGIS="undef" SIGNAME="processing_system7_0_PS_SRSTB">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_SRSTB"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ps_clk" SIGIS="undef" SIGNAME="processing_system7_0_PS_CLK">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_CLK"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ps_porb" SIGIS="undef" SIGNAME="processing_system7_0_PS_PORB">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_PORB"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="GPIO_T"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -215,6 +230,13 @@
         <PORTMAP LOGICAL="MDIO_I" PHYSICAL="MDIO_ETHERNET_0_0_mdio_i"/>
       </PORTMAPS>
     </BUSINTERFACE>
+    <BUSINTERFACE BUSNAME="processing_system7_0_GPIO_0" NAME="GPIO_0_0" TYPE="INITIATOR">
+      <PORTMAPS>
+        <PORTMAP LOGICAL="TRI_I" PHYSICAL="GPIO_0_0_tri_i"/>
+        <PORTMAP LOGICAL="TRI_O" PHYSICAL="GPIO_0_0_tri_o"/>
+        <PORTMAP LOGICAL="TRI_T" PHYSICAL="GPIO_0_0_tri_t"/>
+      </PORTMAPS>
+    </BUSINTERFACE>
   </EXTERNALINTERFACES>
 
   <MODULES>
@@ -232,7 +254,7 @@
         <PARAMETER NAME="USE_TRACE_DATA_EDGE_DETECTOR" VALUE="0"/>
         <PARAMETER NAME="C_TRACE_PIPELINE_WIDTH" VALUE="8"/>
         <PARAMETER NAME="C_TRACE_BUFFER_CLOCK_DELAY" VALUE="12"/>
-        <PARAMETER NAME="C_EMIO_GPIO_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="C_EMIO_GPIO_WIDTH" VALUE="2"/>
         <PARAMETER NAME="C_INCLUDE_ACP_TRANS_CHECK" VALUE="0"/>
         <PARAMETER NAME="C_USE_DEFAULT_ACP_USER_VAL" VALUE="0"/>
         <PARAMETER NAME="C_S_AXI_ACP_ARUSER_VAL" VALUE="31"/>
@@ -496,7 +518,7 @@
         <PARAMETER NAME="PCW_EN_EMIO_ENET1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_PTP_ENET0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_PTP_ENET1" VALUE="0"/>
-        <PARAMETER NAME="PCW_EN_EMIO_GPIO" VALUE="0"/>
+        <PARAMETER NAME="PCW_EN_EMIO_GPIO" VALUE="1"/>
         <PARAMETER NAME="PCW_EN_EMIO_I2C0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_I2C1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_PJTAG" VALUE="0"/>
@@ -566,7 +588,7 @@
         <PARAMETER NAME="PCW_USE_EXPANDED_PS_SLCR_REGISTERS" VALUE="0"/>
         <PARAMETER NAME="PCW_USE_CORESIGHT" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_SRAM_INT" VALUE="0"/>
-        <PARAMETER NAME="PCW_GPIO_EMIO_GPIO_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="PCW_GPIO_EMIO_GPIO_WIDTH" VALUE="2"/>
         <PARAMETER NAME="PCW_GP0_NUM_WRITE_THREADS" VALUE="4"/>
         <PARAMETER NAME="PCW_GP0_NUM_READ_THREADS" VALUE="4"/>
         <PARAMETER NAME="PCW_GP1_NUM_WRITE_THREADS" VALUE="4"/>
@@ -853,8 +875,8 @@
         <PARAMETER NAME="PCW_GPIO_PERIPHERAL_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_GPIO_MIO_GPIO_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_GPIO_MIO_GPIO_IO" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_GPIO_EMIO_GPIO_ENABLE" VALUE="0"/>
-        <PARAMETER NAME="PCW_GPIO_EMIO_GPIO_IO" VALUE="&lt;Select>"/>
+        <PARAMETER NAME="PCW_GPIO_EMIO_GPIO_ENABLE" VALUE="1"/>
+        <PARAMETER NAME="PCW_GPIO_EMIO_GPIO_IO" VALUE="2"/>
         <PARAMETER NAME="PCW_APU_CLK_RATIO_ENABLE" VALUE="6:2:1"/>
         <PARAMETER NAME="PCW_ENET0_PERIPHERAL_FREQMHZ" VALUE="1000 Mbps"/>
         <PARAMETER NAME="PCW_ENET1_PERIPHERAL_FREQMHZ" VALUE="1000 Mbps"/>
@@ -1215,6 +1237,21 @@
             <CONNECTION INSTANCE="xlconcat_0" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" LEFT="1" NAME="GPIO_I" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_GPIO_I">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="GPIO_0_0_tri_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="GPIO_O" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_GPIO_O">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="GPIO_0_0_tri_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="GPIO_T" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_GPIO_T">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="GPIO_0_0_tri_t"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="M_AXI_GP0_ARVALID" SIGIS="undef"/>
         <PORT DIR="O" NAME="M_AXI_GP0_AWVALID" SIGIS="undef"/>
         <PORT DIR="O" NAME="M_AXI_GP0_BREADY" SIGIS="undef"/>
@@ -1392,6 +1429,13 @@
             <PORTMAP LOGICAL="MDIO_O" PHYSICAL="ENET0_MDIO_O"/>
             <PORTMAP LOGICAL="MDIO_T" PHYSICAL="ENET0_MDIO_T"/>
             <PORTMAP LOGICAL="MDIO_I" PHYSICAL="ENET0_MDIO_I"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="processing_system7_0_GPIO_0" NAME="GPIO_0" TYPE="INITIATOR" VLNV="xilinx.com:interface:gpio:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TRI_I" PHYSICAL="GPIO_I"/>
+            <PORTMAP LOGICAL="TRI_O" PHYSICAL="GPIO_O"/>
+            <PORTMAP LOGICAL="TRI_T" PHYSICAL="GPIO_T"/>
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="processing_system7_0_DDR" DATAWIDTH="8" NAME="DDR" TYPE="INITIATOR" VLNV="xilinx.com:interface:ddrx:1.0">

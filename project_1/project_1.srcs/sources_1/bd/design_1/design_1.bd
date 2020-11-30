@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x6C1F2C1DFF895BA3",
+      "boundary_crc": "0xF4B97DB72E6306A8",
       "device": "xc7z010clg400-1",
       "name": "design_1",
       "synth_flow_mode": "Hierarchical",
@@ -87,6 +87,10 @@
             "value_src": "default"
           }
         }
+      },
+      "GPIO_0_0": {
+        "mode": "Master",
+        "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
       }
     },
     "ports": {
@@ -266,6 +270,9 @@
           "PCW_EN_EMIO_ENET0": {
             "value": "1"
           },
+          "PCW_EN_EMIO_GPIO": {
+            "value": "1"
+          },
           "PCW_EN_ENET0": {
             "value": "1"
           },
@@ -280,6 +287,15 @@
           },
           "PCW_FPGA_FCLK0_ENABLE": {
             "value": "1"
+          },
+          "PCW_GPIO_EMIO_GPIO_ENABLE": {
+            "value": "1"
+          },
+          "PCW_GPIO_EMIO_GPIO_IO": {
+            "value": "2"
+          },
+          "PCW_GPIO_EMIO_GPIO_WIDTH": {
+            "value": "2"
           },
           "PCW_MIO_0_IOTYPE": {
             "value": "LVCMOS 3.3V"
@@ -579,10 +595,16 @@
       }
     },
     "interface_nets": {
-      "processing_system7_0_MDIO_ETHERNET_0": {
+      "processing_system7_0_GPIO_0": {
         "interface_ports": [
-          "MDIO_ETHERNET_0_0",
-          "processing_system7_0/MDIO_ETHERNET_0"
+          "GPIO_0_0",
+          "processing_system7_0/GPIO_0"
+        ]
+      },
+      "processing_system7_0_DDR": {
+        "interface_ports": [
+          "DDR_0",
+          "processing_system7_0/DDR"
         ]
       },
       "processing_system7_0_FIXED_IO": {
@@ -591,10 +613,10 @@
           "processing_system7_0/FIXED_IO"
         ]
       },
-      "processing_system7_0_DDR": {
+      "processing_system7_0_MDIO_ETHERNET_0": {
         "interface_ports": [
-          "DDR_0",
-          "processing_system7_0/DDR"
+          "MDIO_ETHERNET_0_0",
+          "processing_system7_0/MDIO_ETHERNET_0"
         ]
       }
     },

@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Sat Nov 28 02:14:44 2020
+//Date        : Mon Nov 30 23:30:14 2020
 //Host        : s-FMVNA5NE running 64-bit Ubuntu 18.04.2 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -35,6 +35,7 @@ module design_1_wrapper
     FIXED_IO_0_ps_clk,
     FIXED_IO_0_ps_porb,
     FIXED_IO_0_ps_srstb,
+    GPIO_0_0_tri_io,
     MDIO_ETHERNET_0_0_mdc,
     MDIO_ETHERNET_0_0_mdio_io,
     enet0_gmii_rxd,
@@ -64,6 +65,7 @@ module design_1_wrapper
   inout FIXED_IO_0_ps_clk;
   inout FIXED_IO_0_ps_porb;
   inout FIXED_IO_0_ps_srstb;
+  inout [1:0]GPIO_0_0_tri_io;
   output MDIO_ETHERNET_0_0_mdc;
   inout MDIO_ETHERNET_0_0_mdio_io;
   input [3:0]enet0_gmii_rxd;
@@ -94,6 +96,14 @@ module design_1_wrapper
   wire FIXED_IO_0_ps_clk;
   wire FIXED_IO_0_ps_porb;
   wire FIXED_IO_0_ps_srstb;
+  wire [0:0]GPIO_0_0_tri_i_0;
+  wire [1:1]GPIO_0_0_tri_i_1;
+  wire [0:0]GPIO_0_0_tri_io_0;
+  wire [1:1]GPIO_0_0_tri_io_1;
+  wire [0:0]GPIO_0_0_tri_o_0;
+  wire [1:1]GPIO_0_0_tri_o_1;
+  wire [0:0]GPIO_0_0_tri_t_0;
+  wire [1:1]GPIO_0_0_tri_t_1;
   wire MDIO_ETHERNET_0_0_mdc;
   wire MDIO_ETHERNET_0_0_mdio_i;
   wire MDIO_ETHERNET_0_0_mdio_io;
@@ -102,6 +112,16 @@ module design_1_wrapper
   wire [3:0]enet0_gmii_rxd;
   wire [3:0]enet0_gmii_txd;
 
+  IOBUF GPIO_0_0_tri_iobuf_0
+       (.I(GPIO_0_0_tri_o_0),
+        .IO(GPIO_0_0_tri_io[0]),
+        .O(GPIO_0_0_tri_i_0),
+        .T(GPIO_0_0_tri_t_0));
+  IOBUF GPIO_0_0_tri_iobuf_1
+       (.I(GPIO_0_0_tri_o_1),
+        .IO(GPIO_0_0_tri_io[1]),
+        .O(GPIO_0_0_tri_i_1),
+        .T(GPIO_0_0_tri_t_1));
   IOBUF MDIO_ETHERNET_0_0_mdio_iobuf
        (.I(MDIO_ETHERNET_0_0_mdio_o),
         .IO(MDIO_ETHERNET_0_0_mdio_io),
@@ -133,6 +153,9 @@ module design_1_wrapper
         .FIXED_IO_0_ps_clk(FIXED_IO_0_ps_clk),
         .FIXED_IO_0_ps_porb(FIXED_IO_0_ps_porb),
         .FIXED_IO_0_ps_srstb(FIXED_IO_0_ps_srstb),
+        .GPIO_0_0_tri_i({GPIO_0_0_tri_i_1,GPIO_0_0_tri_i_0}),
+        .GPIO_0_0_tri_o({GPIO_0_0_tri_o_1,GPIO_0_0_tri_o_0}),
+        .GPIO_0_0_tri_t({GPIO_0_0_tri_t_1,GPIO_0_0_tri_t_0}),
         .MDIO_ETHERNET_0_0_mdc(MDIO_ETHERNET_0_0_mdc),
         .MDIO_ETHERNET_0_0_mdio_i(MDIO_ETHERNET_0_0_mdio_i),
         .MDIO_ETHERNET_0_0_mdio_o(MDIO_ETHERNET_0_0_mdio_o),

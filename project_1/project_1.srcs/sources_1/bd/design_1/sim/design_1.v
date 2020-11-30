@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Sat Nov 28 02:14:44 2020
+//Date        : Mon Nov 30 23:30:14 2020
 //Host        : s-FMVNA5NE running 64-bit Ubuntu 18.04.2 LTS
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -36,6 +36,9 @@ module design_1
     FIXED_IO_0_ps_clk,
     FIXED_IO_0_ps_porb,
     FIXED_IO_0_ps_srstb,
+    GPIO_0_0_tri_i,
+    GPIO_0_0_tri_o,
+    GPIO_0_0_tri_t,
     MDIO_ETHERNET_0_0_mdc,
     MDIO_ETHERNET_0_0_mdio_i,
     MDIO_ETHERNET_0_0_mdio_o,
@@ -67,6 +70,9 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO_0 PS_CLK" *) inout FIXED_IO_0_ps_clk;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO_0 PS_PORB" *) inout FIXED_IO_0_ps_porb;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO_0 PS_SRSTB" *) inout FIXED_IO_0_ps_srstb;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO_0_0 TRI_I" *) input [1:0]GPIO_0_0_tri_i;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO_0_0 TRI_O" *) output [1:0]GPIO_0_0_tri_o;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO_0_0 TRI_T" *) output [1:0]GPIO_0_0_tri_t;
   (* X_INTERFACE_INFO = "xilinx.com:interface:mdio:1.0 MDIO_ETHERNET_0_0 MDC" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME MDIO_ETHERNET_0_0, CAN_DEBUG false" *) output MDIO_ETHERNET_0_0_mdc;
   (* X_INTERFACE_INFO = "xilinx.com:interface:mdio:1.0 MDIO_ETHERNET_0_0 MDIO_I" *) input MDIO_ETHERNET_0_0_mdio_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:mdio:1.0 MDIO_ETHERNET_0_0 MDIO_O" *) output MDIO_ETHERNET_0_0_mdio_o;
@@ -102,6 +108,9 @@ module design_1
   wire processing_system7_0_FIXED_IO_PS_CLK;
   wire processing_system7_0_FIXED_IO_PS_PORB;
   wire processing_system7_0_FIXED_IO_PS_SRSTB;
+  wire [1:0]processing_system7_0_GPIO_0_TRI_I;
+  wire [1:0]processing_system7_0_GPIO_0_TRI_O;
+  wire [1:0]processing_system7_0_GPIO_0_TRI_T;
   wire processing_system7_0_MDIO_ETHERNET_0_MDC;
   wire processing_system7_0_MDIO_ETHERNET_0_MDIO_I;
   wire processing_system7_0_MDIO_ETHERNET_0_MDIO_O;
@@ -113,11 +122,14 @@ module design_1
   assign ENET0_GMII_RX_DV_0_1 = ENET0_GMII_RX_DV_0;
   assign ENET0_GMII_TX_CLK_0_1 = ENET0_GMII_TX_CLK_0;
   assign ENET0_GMII_TX_EN_0[0] = processing_system7_0_ENET0_GMII_TX_EN;
+  assign GPIO_0_0_tri_o[1:0] = processing_system7_0_GPIO_0_TRI_O;
+  assign GPIO_0_0_tri_t[1:0] = processing_system7_0_GPIO_0_TRI_T;
   assign In0_0_1 = enet0_gmii_rxd[3:0];
   assign MDIO_ETHERNET_0_0_mdc = processing_system7_0_MDIO_ETHERNET_0_MDC;
   assign MDIO_ETHERNET_0_0_mdio_o = processing_system7_0_MDIO_ETHERNET_0_MDIO_O;
   assign MDIO_ETHERNET_0_0_mdio_t = processing_system7_0_MDIO_ETHERNET_0_MDIO_T;
   assign enet0_gmii_txd[3:0] = xlconcat_1_dout;
+  assign processing_system7_0_GPIO_0_TRI_I = GPIO_0_0_tri_i[1:0];
   assign processing_system7_0_MDIO_ETHERNET_0_MDIO_I = MDIO_ETHERNET_0_0_mdio_i;
   design_1_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_0_addr[14:0]),
@@ -152,6 +164,9 @@ module design_1
         .ENET0_MDIO_O(processing_system7_0_MDIO_ETHERNET_0_MDIO_O),
         .ENET0_MDIO_T(processing_system7_0_MDIO_ETHERNET_0_MDIO_T),
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
+        .GPIO_I(processing_system7_0_GPIO_0_TRI_I),
+        .GPIO_O(processing_system7_0_GPIO_0_TRI_O),
+        .GPIO_T(processing_system7_0_GPIO_0_TRI_T),
         .MIO(FIXED_IO_0_mio[53:0]),
         .M_AXI_GP0_ACLK(processing_system7_0_FCLK_CLK0),
         .M_AXI_GP0_ARREADY(1'b0),
