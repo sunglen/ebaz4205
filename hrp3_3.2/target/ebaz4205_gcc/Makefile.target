@@ -91,9 +91,10 @@ endif
 #  使用するツールの選択
 #
 ifeq ($(TARGET_UNAME),Cygwin)
-   XSCT = xsct.bat
+   #XSCT = xsct.bat
+   XSCT = /cygdrive/e/Xilinx/SDK/2019.1/bin/xsct.bat
    QEMU = cygstart qemu-system-arm
-   BOOTGEN = /cygdrive/d/Xilinx/SDK/2019.1/bin/bootgen
+   BOOTGEN = /cygdrive/e/Xilinx/SDK/2019.1/bin/bootgen
 else
 ifeq ($(TARGET_UNAME),WSL)
    XSCT = cmd.exe /c C:/Xilinx/SDK/2018.2/bin/xsct.bat
