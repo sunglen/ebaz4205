@@ -46,9 +46,9 @@ CDEFS := $(CDEFS) -DARM_PAGE_TABLE_RATIO=2
 #
 #  コンパイルオプション
 #
-INCLUDES := $(INCLUDES) -I$(TARGETDIR)
+INCLUDES := $(INCLUDES) -I$(TARGETDIR) -I$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/include
 COPTS := $(COPTS) -mlittle-endian
-LDFLAGS := $(LDFLAGS) -mlittle-endian
+LDFLAGS := $(LDFLAGS) -mlittle-endian -L$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/lib
 
 #
 #  カーネルに関する定義

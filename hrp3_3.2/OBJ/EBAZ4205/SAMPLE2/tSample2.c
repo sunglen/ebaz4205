@@ -130,6 +130,8 @@
 #include "kernel_cfg.h"
 #include "tSample2.h"
 
+#include "xgpiops.h"
+
 /*
  *  サービスコールのエラーのログ出力
  */
@@ -351,8 +353,20 @@ eMainTask_main(void)
 #endif /* TASK_LOOP */
 	HRTCNT	hrtcnt1, hrtcnt2;
 
+	XGpioPs_Config *cfg;
+	XGpioPs ins;
+
 	SVC_PERROR(cSysLog_mask(LOG_UPTO(LOG_INFO), LOG_UPTO(LOG_EMERG)));
 	syslog(LOG_NOTICE, "Sample program starts.");
+
+    cfg = XGpioPs_LookupConfig(XPAR_PS7_GPIO_0_DEVICE_ID);
+    XGpioPs_CfgInitialize(&ins, cfg, cfg->BaseAddr);
+
+    XGpioPs_SetDirectionPin(&ins, 54, 1);
+    XGpioPs_SetOutputEnablePin(&ins, 54, 1);
+
+    XGpioPs_SetDirectionPin(&ins, 55, 1);
+    XGpioPs_SetOutputEnablePin(&ins, 55, 1);
 
 	/*
 	 *  シリアルポートの初期化
