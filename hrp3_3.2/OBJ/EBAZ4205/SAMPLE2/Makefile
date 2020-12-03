@@ -177,8 +177,8 @@ ifdef USE_CFG_PASS3
 endif
 CDEFS := $(CDEFS) 
 INCLUDES := -I. -I$(SRCDIR)/include $(INCLUDES) -I$(SRCDIR)
-LDFLAGS := $(LDFLAGS) -lxil
-LIBS :=  $(LIBS) $(CXXLIBS)
+LDFLAGS := $(LDFLAGS) -lxil -L$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/lib
+LIBS :=  $(LIBS) $(CXXLIBS) -lxil
 CFLAGS = $(COPTS) $(CDEFS) $(INCLUDES)
 
 #
@@ -210,13 +210,13 @@ endif
 #
 SYSSVC_DIRS := $(TECSGENDIR) $(SRCDIR)/tecs_kernel \
 				$(SYSSVC_DIRS) $(SRCDIR)/syssvc \
-				$(TECSDIR)/tecs $(TECSDIR)/tecs/rpc
+				$(TECSDIR)/tecs $(TECSDIR)/tecs/rpc #$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/libsrc/gpiops_v3_5/src
 SYSSVC_ASMOBJS := $(SYSSVC_ASMOBJS)
 SYSSVC_COBJS := $(SYSSVC_COBJS)  $(TECS_KERNEL_COBJS) \
-				prb_str.o $(INIT_TECS_COBJ) $(CXXRTS)
-SYSSVC_CFLAGS := $(SYSSVC_CFLAGS) -DTOPPERS_SVC_CALL
+				prb_str.o $(INIT_TECS_COBJ) $(CXXRTS) #xgpiops.o xgpiops_g.o xgpiops_hw.o xgpiops_intr.o xgpiops_selftest.o xgpiops_sinit.o
+SYSSVC_CFLAGS := $(SYSSVC_CFLAGS) -DTOPPERS_SVC_CALL 
 INCLUDES := $(INCLUDES) -I$(TECSGENDIR) -I$(SRCDIR)/tecs_kernel \
-				-I$(TECSDIR)/tecs -I$(TECSDIR)/tecs/rpc
+				-I$(TECSDIR)/tecs -I$(TECSDIR)/tecs/rpc -I$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/include
 
 #
 #  トレースログ記録のサンプルコードに関する定義

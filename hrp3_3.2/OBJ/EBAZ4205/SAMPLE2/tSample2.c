@@ -131,6 +131,7 @@
 #include "tSample2.h"
 
 #include "xgpiops.h"
+//#include "sleep.h"
 
 /*
  *  サービスコールのエラーのログ出力
@@ -356,9 +357,6 @@ eMainTask_main(void)
 	XGpioPs_Config *cfg;
 	XGpioPs ins;
 
-	SVC_PERROR(cSysLog_mask(LOG_UPTO(LOG_INFO), LOG_UPTO(LOG_EMERG)));
-	syslog(LOG_NOTICE, "Sample program starts.");
-
     cfg = XGpioPs_LookupConfig(XPAR_PS7_GPIO_0_DEVICE_ID);
     XGpioPs_CfgInitialize(&ins, cfg, cfg->BaseAddr);
 
@@ -367,6 +365,19 @@ eMainTask_main(void)
 
     XGpioPs_SetDirectionPin(&ins, 55, 1);
     XGpioPs_SetOutputEnablePin(&ins, 55, 1);
+
+    XGpioPs_WritePin(&ins, 54, 1);
+    dly_tsk(1000000);
+    XGpioPs_WritePin(&ins, 54, 0);
+    dly_tsk(1000000);
+
+    XGpioPs_WritePin(&ins, 55, 1);
+    dly_tsk(1000000);
+    XGpioPs_WritePin(&ins, 55, 0);
+    dly_tsk(1000000);
+
+	SVC_PERROR(cSysLog_mask(LOG_UPTO(LOG_INFO), LOG_UPTO(LOG_EMERG)));
+	syslog(LOG_NOTICE, "Sample program starts.");
 
 	/*
 	 *  シリアルポートの初期化

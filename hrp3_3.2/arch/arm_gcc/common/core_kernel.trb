@@ -74,7 +74,7 @@ $START_OBJS = [ "start.o" ]
 #
 #  コンパイラが必ず用いるライブラリの定義
 # 
-$TARGET_LIBS = [ "libgcc.a" ]
+#$TARGET_LIBS = [ "libgcc.a" ]
 
 # 
 #  標準のセクションの定義

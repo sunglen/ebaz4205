@@ -20,6 +20,7 @@ INCLUDEFILES:=*.h
 OBJECTS =	$(addsuffix .o, $(basename $(wildcard *.c)))
 
 libs: banner xgpiops_libs clean
+#libs: banner xgpiops_libs
 
 %.o: %.c
 	${COMPILER} $(CC_FLAGS) $(ECC_FLAGS) $(INCLUDES) -o $@ $<
