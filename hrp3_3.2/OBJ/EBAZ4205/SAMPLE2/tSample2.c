@@ -132,6 +132,7 @@
 
 #include "xgpiops.h"
 //#include "sleep.h"
+#include "ps7_init.h"
 
 /*
  *  サービスコールのエラーのログ出力
@@ -357,6 +358,7 @@ eMainTask_main(void)
 	XGpioPs_Config *cfg;
 	XGpioPs ins;
 
+	ps7_init();
     cfg = XGpioPs_LookupConfig(XPAR_PS7_GPIO_0_DEVICE_ID);
     XGpioPs_CfgInitialize(&ins, cfg, cfg->BaseAddr);
 

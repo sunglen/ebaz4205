@@ -210,13 +210,19 @@ endif
 #
 SYSSVC_DIRS := $(TECSGENDIR) $(SRCDIR)/tecs_kernel \
 				$(SYSSVC_DIRS) $(SRCDIR)/syssvc \
-				$(TECSDIR)/tecs $(TECSDIR)/tecs/rpc #$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/libsrc/gpiops_v3_5/src
+				$(TECSDIR)/tecs $(TECSDIR)/tecs/rpc \
+				$(TARGETDIR)/xilinx_sdk/ebaz4205_hw
+				#$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/libsrc/gpiops_v3_5/src
 SYSSVC_ASMOBJS := $(SYSSVC_ASMOBJS)
 SYSSVC_COBJS := $(SYSSVC_COBJS)  $(TECS_KERNEL_COBJS) \
-				prb_str.o $(INIT_TECS_COBJ) $(CXXRTS) #xgpiops.o xgpiops_g.o xgpiops_hw.o xgpiops_intr.o xgpiops_selftest.o xgpiops_sinit.o
+				prb_str.o $(INIT_TECS_COBJ) $(CXXRTS)
+				#ps7_init.o
+				#xgpiops.o xgpiops_g.o xgpiops_hw.o xgpiops_intr.o xgpiops_selftest.o xgpiops_sinit.o
 SYSSVC_CFLAGS := $(SYSSVC_CFLAGS) -DTOPPERS_SVC_CALL 
 INCLUDES := $(INCLUDES) -I$(TECSGENDIR) -I$(SRCDIR)/tecs_kernel \
-				-I$(TECSDIR)/tecs -I$(TECSDIR)/tecs/rpc -I$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/include
+				-I$(TECSDIR)/tecs -I$(TECSDIR)/tecs/rpc \
+				-I$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/include \
+				-I$(TARGETDIR)/xilinx_sdk/ebaz4205_hw
 
 #
 #  トレースログ記録のサンプルコードに関する定義
@@ -253,7 +259,7 @@ CFG_ASMOBJS := $(CFG_ASMOBJS)
 CFG_COBJS := kernel_cfg.o kernel_mem.o $(CFG_COBJS)
 CFG_CFLAGS := -DTOPPERS_CB_TYPE_ONLY $(CFG_CFLAGS)
 
-CFG2_OUT_SRCS := kernel_cfg.h kernel_cfg.c kernel_mem2.c $(CFG2_OUT_SRCS)
+CFG2_OUT_SRCS := kernel_cfg.h kernel_cfg.c kernel_mem2.c $(CFG2_OUT_SRCS) 
 CFG2_COBJS := kernel_cfg.o kernel_mem2.o $(CFG2_COBJS)
 CFG2_ASMOBJS := $(CFG2_ASMOBJS)
 
@@ -275,7 +281,7 @@ CFG3_ASMOBJS := $(CFG3_ASMOBJS)
 #
 KERNEL_DIRS := $(KERNEL_DIRS) $(SRCDIR)/kernel
 KERNEL_ASMOBJS := $(KERNEL_ASMOBJS)
-KERNEL_COBJS := $(KERNEL_COBJS) svc_table.o
+KERNEL_COBJS := $(KERNEL_COBJS) svc_table.o ps7_init.o
 KERNEL_CFLAGS := $(KERNEL_CFLAGS) -I$(SRCDIR)/kernel
 
 #
