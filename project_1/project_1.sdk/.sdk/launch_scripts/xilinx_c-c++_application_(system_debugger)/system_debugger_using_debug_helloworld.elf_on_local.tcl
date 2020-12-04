@@ -12,6 +12,7 @@ ps7_post_config
 targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-SMT2 21025DA10700"} -index 0
 rst -processor
 targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-SMT2 21025DA10700"} -index 0
-dow E:/eework/ebaz4205/project_1/project_1.sdk/helloworld/Debug/helloworld.elf
+dow E:/eework/ebaz4205/hrp3_3.2/OBJ/EBAZ4205/SAMPLE2/hrp.elf
 configparams force-mem-access 0
-bpadd -addr &main
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-SMT2 21025DA10700"} -index 0
+con

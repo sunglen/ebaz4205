@@ -50,17 +50,38 @@
 #include "xil_printf.h"
 
 #include "sleep.h"
-#include "xgpiops.h"
+//#include "xgpiops.h"
+
+#define REG(address) *(volatile unsigned int*)(address)
+
+#define GPIOPS_BASE   (0xE000A000)
+#define GPIOPS_DATA_0 (GPIOPS_BASE + 0x0040 + 0x4*2)
+#define GPIOPS_DIRM_0 (GPIOPS_BASE + 0x0204 + 0x40*2)
+#define GPIOPS_OEN_0  (GPIOPS_BASE + 0x0208 + 0x40*2)
 
 int main()
 {
-	XGpioPs_Config *cfg;
-	XGpioPs ins;
+//	XGpioPs_Config *cfg;
+//	XGpioPs ins;
 
     init_platform();
 
     print("Hello World\n\r");
 
+    /* Set MIO54 as output */
+    REG(GPIOPS_DIRM_0) = 1 << 0;
+    REG(GPIOPS_OEN_0)  = 1 << 0;
+
+    while(1) {
+        /* Set MIO54 as High */
+        REG(GPIOPS_DATA_0) |= 1 << 0;
+        sleep(1);
+        /* Set MIO54 as Low */
+        REG(GPIOPS_DATA_0) &= ~(1 << 0);
+        sleep(1);
+    }
+
+    /*
     cfg = XGpioPs_LookupConfig(XPAR_PS7_GPIO_0_DEVICE_ID);
     XGpioPs_CfgInitialize(&ins, cfg, cfg->BaseAddr);
 
@@ -81,6 +102,7 @@ int main()
         XGpioPs_WritePin(&ins, 55, 0);
         sleep(1);
     }
+    */
 
     cleanup_platform();
     return 0;

@@ -8,8 +8,11 @@ targets -set -nocase -filter {name =~"APU*"} -index 0
 rst -system
 after 1000
 
+targets -set -nocase -filter {name =~"APU*"} -index 0
+fpga -file ../../../target/ebaz4205_gcc/xilinx_sdk/ebaz4205_hw/design_1_wrapper.bit
+
 #targets -set -nocase -filter {name =~"APU*"} -index 0
-#loadhw -hw ./ebaz4205_hw/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+#loadhw -hw ../../../target/ebaz4205_gcc/xilinx_sdk/ebaz4205_hw/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
 
 configparams force-mem-access 1
 

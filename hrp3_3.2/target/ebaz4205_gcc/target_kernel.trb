@@ -5,7 +5,7 @@
 #  $Id: target_kernel.trb 556 2018-11-25 02:09:55Z ertl-hiro $
 #
 
-$TARGET_LIBS = [ "libgcc.a", "libxil.a" ]
+#$TARGET_LIBS = [ "libgcc.a", "libxil.a" ]
 
 #
 #  生成スクリプトのチップ依存部

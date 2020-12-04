@@ -29,8 +29,8 @@ CDEFS := $(CDEFS) -DARM_PAGE_TABLE_RATIO=2
 #  プションをつける．
 #
 CDEFS := $(CDEFS) -DUSE_ARM_FPU
-#COPTS := $(COPTS) -mfloat-abi=softfp
-COPTS := $(COPTS) -mfloat-abi=hard
+COPTS := $(COPTS) -mfloat-abi=softfp #binaries of libc in Windows maybe compiled with softfp
+#COPTS := $(COPTS) -mfloat-abi=hard
 
 #
 #  QEMUに関する定義

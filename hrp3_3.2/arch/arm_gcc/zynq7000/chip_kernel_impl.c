@@ -46,6 +46,7 @@
 
 #include "kernel_impl.h"
 #include "pl310.h"
+#include "ps7_init.h"
 
 /*
  *  チップ依存の初期化
@@ -62,6 +63,8 @@ chip_initialize(void)
 	 *  L2キャッシュコントローラ（PL310）の初期化
 	 */
 	pl310_initialize(0x0U, ~0x0U);
+
+	//ps7_init();
 }
 
 /*
