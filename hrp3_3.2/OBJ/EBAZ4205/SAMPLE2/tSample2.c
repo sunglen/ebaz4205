@@ -130,9 +130,14 @@
 #include "kernel_cfg.h"
 #include "tSample2.h"
 
-#include "xgpiops.h"
-//#include "sleep.h"
-#include "ps7_init.h"
+//#include "xgpiops.h"
+
+#define REG(address) *(volatile unsigned int*)(address)
+
+#define GPIOPS_BASE   (0xE000A000)
+#define GPIOPS_DATA_2 (GPIOPS_BASE + 0x0040 + 0x4*2)
+#define GPIOPS_DIRM_2 (GPIOPS_BASE + 0x0204 + 0x40*2)
+#define GPIOPS_OEN_2  (GPIOPS_BASE + 0x0208 + 0x40*2)
 
 /*
  *  サービスコールのエラーのログ出力
@@ -355,12 +360,14 @@ eMainTask_main(void)
 #endif /* TASK_LOOP */
 	HRTCNT	hrtcnt1, hrtcnt2;
 
+	/*
 	XGpioPs_Config *cfg;
 	XGpioPs ins;
 
-	ps7_init();
     cfg = XGpioPs_LookupConfig(XPAR_PS7_GPIO_0_DEVICE_ID);
     XGpioPs_CfgInitialize(&ins, cfg, cfg->BaseAddr);
+
+    syslog_1(LOG_NOTICE, "BaseAddr=%08X", cfg->BaseAddr);
 
     XGpioPs_SetDirectionPin(&ins, 54, 1);
     XGpioPs_SetOutputEnablePin(&ins, 54, 1);
@@ -377,6 +384,23 @@ eMainTask_main(void)
     dly_tsk(1000000);
     XGpioPs_WritePin(&ins, 55, 0);
     dly_tsk(1000000);
+	*/
+
+    /* Set MIO54 as output */
+    REG(GPIOPS_DIRM_2) = 1 << 0;
+    REG(GPIOPS_OEN_2)  = 1 << 0;
+
+    int n=0;
+    while(n<3) {
+        /* Set MIO54 as High */
+        REG(GPIOPS_DATA_2) |= 1 << 0;
+        dly_tsk(1000000);
+        /* Set MIO54 as Low */
+        REG(GPIOPS_DATA_2) &= ~(1 << 0);
+        dly_tsk(1000000);
+
+        n++;
+    }
 
 	SVC_PERROR(cSysLog_mask(LOG_UPTO(LOG_INFO), LOG_UPTO(LOG_EMERG)));
 	syslog(LOG_NOTICE, "Sample program starts.");

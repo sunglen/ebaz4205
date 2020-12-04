@@ -1,3 +1,4 @@
+1. log
 s@s-FMVNA5NE:~/ee/ebaz4205/hrp3_3.2/OBJ/EBAZ4205/SAMPLE2$ make runj
 xsct -interactive ../../../target/ebaz4205_gcc/xilinx_sdk/jtag.tcl \
 	../../../target/ebaz4205_gcc/xilinx_sdk/ebaz4205_hw/ps7_init.tcl \
@@ -35,4 +36,47 @@ Successfully downloaded /home/s/ee/ebaz4205/hrp3_3.2/OBJ/EBAZ4205/SAMPLE2/hrp.el
 Info: ARM Cortex-A9 MPCore #0 (target 2) Running                                                                                                                                
 Info: Breakpoint 0 status:
    target 2: {Address: 0x101e9c Type: Hardware}
-xsct%                                                                                                                                                                           
+xsct%
+
+$ make runj
+/cygdrive/e/Xilinx/SDK/2019.1/bin/xsct.bat -interactive ../../../target/ebaz4205_gcc/xilinx_sdk/jtag.tcl \
+        ../../../target/ebaz4205_gcc/xilinx_sdk/ebaz4205_hw/ps7_init.tcl \
+        hrp.elf
+
+****** Xilinx Software Commandline Tool (XSCT) v2019.1
+  **** SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+
+Info: ARM Cortex-A9 MPCore #0 (target 2) Stopped at 0xffffff28 (Suspended)
+Info: ARM Cortex-A9 MPCore #1 (target 3) Stopped at 0xffffff34 (Suspended)
+100%    1MB   1.9MB/s  00:01
+Downloading Program -- E:/eework/ebaz4205/hrp3_3.2/OBJ/EBAZ4205/SAMPLE2/hrp.elf
+        section, .text_kernel: 0x00100000 - 0x0010e41b
+        section, .rodata_kernel: 0x0010f000 - 0x00123fff
+        section, .text_rDomain1: 0x00124000 - 0x00124003
+        section, .rodata_rDomain1: 0x00125000 - 0x00125033
+        section, .rodata_rDomain2: 0x00126000 - 0x0012600f
+        section, .text_shared: 0x00127000 - 0x0012971f
+        section, .rodata_shared: 0x0012a000 - 0x0012adc3
+        section, .ARM.exidx: 0x0012adc4 - 0x0012adcb
+        section, .bss_kernel: 0x0012b000 - 0x0012babf
+        section, .noinit_kernel: 0x0012bac0 - 0x00132abf
+        section, .ustack_TSKID_tTask_rDomain1_Task1: 0x00133000 - 0x00133fff
+        section, .ustack_TOPPERS_DDR_DUMMY1: 0x00134000 - 0x00134fff
+        section, .ustack_TSKID_tTask_rDomain1_Task2: 0x00135000 - 0x00135fff
+        section, .ustack_TSKID_tTask_rDomain2_Task3: 0x00136000 - 0x00136fff
+        section, .ustack_TSKID_tTask_rDomain1_AlarmTask: 0x00137000 - 0x00137fff
+        section, .bss_shared: 0x00138000 - 0x0013800f
+        section, .DDR_align: 0x00138010 - 0x00138fff
+100%    0MB   0.5MB/s  00:00
+Setting PC to Program Start Address 0x00100000
+Successfully downloaded E:/eework/ebaz4205/hrp3_3.2/OBJ/EBAZ4205/SAMPLE2/hrp.elf
+Info: ARM Cortex-A9 MPCore #0 (target 2) Running
+Info: Breakpoint 0 status:
+   target 2: {Address: 0x10209c Type: Hardware}
+
+                                                                                                                                                                           
+2. add "fpga" and optional "loadhw" command to jtag.tcl.
+fpga command for loading bit stream is a must.
+tcl files in SDK (project_1.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger))folder can be examples.

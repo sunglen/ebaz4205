@@ -215,8 +215,8 @@ SYSSVC_DIRS := $(TECSGENDIR) $(SRCDIR)/tecs_kernel \
 				#$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/libsrc/gpiops_v3_5/src
 SYSSVC_ASMOBJS := $(SYSSVC_ASMOBJS)
 SYSSVC_COBJS := $(SYSSVC_COBJS)  $(TECS_KERNEL_COBJS) \
-				prb_str.o $(INIT_TECS_COBJ) $(CXXRTS)
-				#ps7_init.o
+				prb_str.o $(INIT_TECS_COBJ) $(CXXRTS) \
+				ps7_init.o
 				#xgpiops.o xgpiops_g.o xgpiops_hw.o xgpiops_intr.o xgpiops_selftest.o xgpiops_sinit.o
 SYSSVC_CFLAGS := $(SYSSVC_CFLAGS) -DTOPPERS_SVC_CALL 
 INCLUDES := $(INCLUDES) -I$(TECSGENDIR) -I$(SRCDIR)/tecs_kernel \
@@ -281,7 +281,7 @@ CFG3_ASMOBJS := $(CFG3_ASMOBJS)
 #
 KERNEL_DIRS := $(KERNEL_DIRS) $(SRCDIR)/kernel
 KERNEL_ASMOBJS := $(KERNEL_ASMOBJS)
-KERNEL_COBJS := $(KERNEL_COBJS) svc_table.o ps7_init.o
+KERNEL_COBJS := $(KERNEL_COBJS) svc_table.o
 KERNEL_CFLAGS := $(KERNEL_CFLAGS) -I$(SRCDIR)/kernel
 
 #
