@@ -30,6 +30,10 @@ gen/
 objs/
 omit_svc.h
 offset.h
+!kernel_impl.h
+!kernel_int.h
+!kernel_rename.h
+!kernel_unrename.h
 
 # Precompiled Headers
 *.gch
