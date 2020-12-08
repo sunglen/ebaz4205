@@ -1,0 +1,66 @@
+/*
+ *  LED点滅プログラム(OS)のコンポーネント記述ファイル
+ */
+
+
+/*
+ *  カーネルオブジェクトの定義
+ */
+import(<kernel.cdl>);
+
+/* import("target.cdl"); */
+
+/* comment tPutLogSIOPort_initialize() in target_kernel_impl.c if
+ * SIO is NOT imported.
+ */
+
+/*
+ *  デバイスドライバコンポーネントの定義
+ */
+import("tLED.cdl");
+
+/*
+ *  LEDテストプログラムの定義
+ */
+[singleton]
+celltype tMain01 {
+    require tKernel.eKernel;         /* 呼び口名なし（例：delay） */
+
+    entry    sTaskBody  eTaskBody;   /* Mainタスク */
+
+    call    sLED        cLED;        /* LED操作 */
+};
+
+/* 
+ *  プロトタイプ宣言
+ */
+cell tMain01    Main01;
+cell tLED       LED;
+
+/*
+ *  組み上げ記述
+ */
+cell tKernel ASPKernel {
+};
+
+cell tTask Task1 {
+    /* 呼び口の結合 */
+    cTaskBody = Main01.eTaskBody;
+
+    /* 属性の設定 */
+    attribute = C_EXP("TA_ACT");
+    priority      = C_EXP("MAIN_PRIORITY"); /* 優先度を指定 */
+    stackSize     = C_EXP("STACK_SIZE");    /*スタックサイズを指定 */
+};
+
+cell tLED LED {
+};
+
+cell tInitializeRoutine tLEDInitializeRoutine{
+    cInitializeRoutineBody = LED.eInitialize;
+};
+
+cell tMain01 Main01 {
+    /* デバイスコンポーネントの受け口と結合 */
+    cLED = LED.eLED;
+};

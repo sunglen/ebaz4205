@@ -154,7 +154,7 @@ target_initialize(void)
 	 *  SIOを初期化
 	 */
 #ifndef TOPPERS_OMIT_TECS
-	tPutLogSIOPort_initialize();
+	//tPutLogSIOPort_initialize();
 #endif /* TOPPERS_OMIT_TECS */
 }
 

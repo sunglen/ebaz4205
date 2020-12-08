@@ -1,0 +1,24 @@
+/*
+ *  LEDコンポーネント記述ファイル
+ */
+
+const uint8_t  LED_ON  = 0;             /* LED点灯 */
+const uint8_t  LED_OFF = 1;             /* LED消灯 */
+
+/*
+ * LEDを操作するためのシグニチャ
+ */
+signature sLED {
+    void output([in]uint16_t ledNo, [in]uint8_t ledState); /* LED指定点灯 */
+    uint8_t sense([in]uint16_t ledNo); /* LED点灯状態の参照 */
+};
+
+/*
+ *  LEDセルタイプ
+ */
+[singleton]
+celltype tLED {
+    entry    sRoutineBody eInitialize;
+    entry    sLED eLED;
+};
+
