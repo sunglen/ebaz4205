@@ -170,8 +170,8 @@ ifdef OMIT_TECS
 endif
 CDEFS := $(CDEFS) 
 INCLUDES := -I. -I$(SRCDIR)/include $(INCLUDES) -I$(SRCDIR)
-LDFLAGS := $(LDFLAGS) -lxil -L$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/lib
-LIBS :=  $(LIBS) $(CXXLIBS)
+LDFLAGS := $(LDFLAGS) -L$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/lib
+LIBS :=  $(LIBS) $(CXXLIBS) -lxil #NOTE: -lxil must be after -lgcc
 CFLAGS = $(COPTS) $(CDEFS) $(INCLUDES)
 
 #

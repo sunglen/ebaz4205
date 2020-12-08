@@ -177,7 +177,7 @@ ifdef USE_CFG_PASS3
 endif
 CDEFS := $(CDEFS) 
 INCLUDES := -I. -I$(SRCDIR)/include $(INCLUDES) -I$(SRCDIR)
-LDFLAGS := $(LDFLAGS) -lxil -L$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/lib
+LDFLAGS := $(LDFLAGS) -L$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/lib
 LIBS :=  $(LIBS) $(CXXLIBS) -lxil
 CFLAGS = $(COPTS) $(CDEFS) $(INCLUDES)
 

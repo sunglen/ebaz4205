@@ -34,6 +34,7 @@ offset.h
 !kernel_int.h
 !kernel_rename.h
 !kernel_unrename.h
+*.srec
 
 # Precompiled Headers
 *.gch
