@@ -55,6 +55,19 @@
 #define LED0 (0)
 #define LED1 (1)
 
+/*
+ *  サービスコールのエラーのログ出力
+ */
+Inline void
+svc_perror(const char *file, int_t line, const char *expr, ER ercd)
+{
+	if (ercd < 0) {
+		t_perror(LOG_ERROR, file, line, expr, ercd);
+	}
+}
+
+#define	SVC_PERROR(expr)	svc_perror(__FILE__, __LINE__, #expr, (expr))
+
 /* entry port function #_TEPF_# */
 /* #[<ENTRY_PORT>]# eTaskBody
  * entry port: eTaskBody
@@ -71,6 +84,23 @@ void
 eTaskBody_main()
 {
 	uint8_t ledState;
+	ER_UINT	ercd;
+
+	/*
+	 *  シリアルポートの初期化
+	 *
+	 *  システムログタスクと同じシリアルポートを使う場合など，シリアル
+	 *  ポートがオープン済みの場合にはここでE_OBJエラーになるが，支障は
+	 *  ない．
+	 */
+	ercd = cSerialPort_open();
+	if (ercd < 0 && MERCD(ercd) != E_OBJ) {
+		syslog(LOG_ERROR, "%s (%d) reported by `cSerialPort_open'.",
+									itron_strerror(ercd), SERCD(ercd));
+	}
+	SVC_PERROR(cSerialPort_control(IOCTL_CRLF | IOCTL_FCSND | IOCTL_FCRCV));
+
+	syslog(LOG_NOTICE, "Sample program starts.");
 
 	cLED_output(LED0, LED_ON);
 	cLED_output(LED1, LED_ON);

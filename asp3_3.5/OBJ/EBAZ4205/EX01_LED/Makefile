@@ -208,7 +208,7 @@ ifdef USE_CXX
 else
 	APPL_COBJS := 
 endif
-APPL_COBJS := $(APPL_COBJS) log_output.o vasyslog.o t_perror.o strerror.o
+APPL_COBJS := $(APPL_COBJS) log_output.o vasyslog.o t_perror.o strerror.o armv8.o
 #APPL_COBJS := $(APPL_COBJS)
 APPL_CFLAGS := $(APPL_CFLAGS)
 ifdef APPLDIRS
@@ -228,6 +228,10 @@ SYSSVC_CFLAGS := $(SYSSVC_CFLAGS)
 INCLUDES := $(INCLUDES) -I$(TECSGENDIR) -I$(SRCDIR)/tecs_kernel \
 			-I$(TARGETDIR)/xilinx_sdk/standalone_bsp_0/ps7_cortexa9_0/include \
 			-I$(TARGETDIR)/xilinx_sdk/ebaz4205_hw
+
+#  ミドルウェアの Makefile のインクルード
+#
+include $(SRCDIR)/monitor/Makefile.config
 
 #
 #  トレースログ記録のサンプルコードに関する定義
