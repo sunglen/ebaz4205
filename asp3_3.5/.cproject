@@ -15,13 +15,25 @@
 				<configuration buildProperties="" id="com.atollic.truestudio.exe.debug.toolchain.1095936269" name="Debug" parent="org.eclipse.cdt.build.core.emptycfg">
 					<folderInfo id="com.atollic.truestudio.exe.debug.toolchain.1095936269.400276968" name="/" resourcePath="">
 						<toolChain id="com.atollic.truestudio.exe.debug.toolchain.242756693" name="Atollic ARM Tools" superClass="com.atollic.truestudio.exe.debug.toolchain">
+							<option id="com.atollic.truestudio.general.runtimelib.1271005256" superClass="com.atollic.truestudio.general.runtimelib" value="com.atollic.truestudio.ld.general.cclib.CCSmallCSmall" valueType="enumerated"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.atollic.truestudio.exe.debug.toolchain.platform.617030512" isAbstract="false" name="Debug platform" osList="all" superClass="com.atollic.truestudio.exe.debug.toolchain.platform"/>
 							<builder buildPath="${workspace_loc:/asp3_3.5}/Debug" id="com.atollic.truestudio.mbs.builder1.157562323" managedBuildOn="false" name="CDT Internal Builder.Debug" superClass="com.atollic.truestudio.mbs.builder1"/>
-							<tool id="com.atollic.truestudio.exe.debug.toolchain.as.1010887525" name="Assembler" superClass="com.atollic.truestudio.exe.debug.toolchain.as"/>
-							<tool id="com.atollic.truestudio.exe.debug.toolchain.gcc.1002052632" name="C Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gcc"/>
+							<tool id="com.atollic.truestudio.exe.debug.toolchain.as.1010887525" name="Assembler" superClass="com.atollic.truestudio.exe.debug.toolchain.as">
+								<inputType id="com.atollic.truestudio.as.input.650463240" name="Input" superClass="com.atollic.truestudio.as.input"/>
+							</tool>
+							<tool id="com.atollic.truestudio.exe.debug.toolchain.gcc.1002052632" name="C Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gcc">
+								<inputType id="com.atollic.truestudio.gcc.input.778881248" superClass="com.atollic.truestudio.gcc.input"/>
+							</tool>
 							<tool id="com.atollic.truestudio.exe.debug.toolchain.ld.2050176177" name="C Linker" superClass="com.atollic.truestudio.exe.debug.toolchain.ld"/>
-							<tool id="com.atollic.truestudio.exe.debug.toolchain.gpp.180205389" name="C++ Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gpp"/>
-							<tool id="com.atollic.truestudio.exe.debug.toolchain.ldcc.1742446633" name="C++ Linker" superClass="com.atollic.truestudio.exe.debug.toolchain.ldcc"/>
+							<tool id="com.atollic.truestudio.exe.debug.toolchain.gpp.180205389" name="C++ Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gpp">
+								<inputType id="com.atollic.truestudio.gpp.input.8588483" superClass="com.atollic.truestudio.gpp.input"/>
+							</tool>
+							<tool id="com.atollic.truestudio.exe.debug.toolchain.ldcc.1742446633" name="C++ Linker" superClass="com.atollic.truestudio.exe.debug.toolchain.ldcc">
+								<inputType id="com.atollic.truestudio.ldcc.input.1962206590" name="Input" superClass="com.atollic.truestudio.ldcc.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
 							<tool id="com.atollic.truestudio.ar.base.1081555714" name="Archiver" superClass="com.atollic.truestudio.ar.base"/>
 							<tool id="com.atollic.truestudio.exe.debug.toolchain.secoutput.1429914496" name="Other" superClass="com.atollic.truestudio.exe.debug.toolchain.secoutput"/>
 						</toolChain>
@@ -41,4 +53,5 @@
 		<project id="asp3_3.5.null.219210826" name="asp3_3.5"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

@@ -196,7 +196,7 @@ CFLAGS = $(COPTS) $(CDEFS) $(INCLUDES)
 #  アプリケーションプログラムに関する定義
 #
 APPLNAME = tMain01
-APPLDIRS = 
+APPLDIRS = ..
 APPL_CFG = $(APPLNAME).cfg
 APPL_CDL = $(APPLNAME).cdl
 
@@ -206,7 +206,7 @@ ifdef USE_CXX
 	APPL_CXXOBJS := $(APPLNAME).o
 	APPL_COBJS :=
 else
-	APPL_COBJS := 
+	APPL_COBJS := command.o device.o
 endif
 APPL_COBJS := $(APPL_COBJS) log_output.o vasyslog.o t_perror.o strerror.o armv8.o
 #APPL_COBJS := $(APPL_COBJS)
