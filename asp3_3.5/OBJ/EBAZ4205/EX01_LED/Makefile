@@ -232,6 +232,8 @@ INCLUDES := $(INCLUDES) -I$(TECSGENDIR) -I$(SRCDIR)/tecs_kernel \
 #  ミドルウェアの Makefile のインクルード
 #
 include $(SRCDIR)/monitor/Makefile.config
+include $(SRCDIR)/files/ff/Makefile.config
+include $(SRCDIR)/files/Makefile.config
 
 #
 #  トレースログ記録のサンプルコードに関する定義
