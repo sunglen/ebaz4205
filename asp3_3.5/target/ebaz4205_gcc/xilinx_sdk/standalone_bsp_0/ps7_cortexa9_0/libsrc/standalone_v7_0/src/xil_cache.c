@@ -791,7 +791,7 @@ void Xil_L1DCacheInvalidate(void)
 	currmask = mfcpsr();
 	mtcpsr(currmask | IRQ_FIQ_MASK);
 
-#ifdef __GNUC__
+#ifdef __GNUC__N
 	stack_end = (u32)&_stack_end;
 	stack_start = (u32)&__undef_stack;
 	stack_size=stack_start-stack_end;
@@ -1383,7 +1383,7 @@ void Xil_L2CacheDisable(void)
 ****************************************************************************/
 void Xil_L2CacheInvalidate(void)
 {
-	#ifdef __GNUC__
+	#ifdef __GNUC__N
 	u32 stack_start,stack_end,stack_size;
 	register u32 L2CCReg;
 	stack_end = (u32)&_stack_end;

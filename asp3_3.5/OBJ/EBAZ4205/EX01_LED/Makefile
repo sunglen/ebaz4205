@@ -552,6 +552,7 @@ ifeq ($(UNAME),Windows)
   OBJDUMP = "$(GCC_PATH_WIN)\$(GCC_TARGET_PREFIX)objdump"
 else ifeq ($(UNAME),Cygwin)
   #GCC_PATH_WIN =  /cygdrive/c/TrueSTUDIO\ for\ STM32\ 9.3.0/ARMTools/bin/
+  #GCC_TARGET_PREFIX = arm-none-eabi-
   GCC_TARGET_PREFIX = arm-atollic-eabi-
   CC = "$(GCC_TARGET_PREFIX)gcc"
   CXX = $(GCC_TARGET_PREFIX)g++"

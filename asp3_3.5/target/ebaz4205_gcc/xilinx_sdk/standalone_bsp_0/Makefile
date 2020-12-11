@@ -20,6 +20,7 @@ endif
 
 ifeq ($(UNAME),Cygwin)
   GCC_TARGET_PREFIX = arm-atollic-eabi-
+  #GCC_TARGET_PREFIX = arm-none-eabi-
 else
   GCC_TARGET_PREFIX = arm-none-eabi-
 endif

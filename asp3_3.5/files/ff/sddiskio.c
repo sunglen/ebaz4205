@@ -141,50 +141,80 @@ void sd_init(intptr_t exinf)
 static int sdcard_sense(void *pif, BOOL on)
 {
 	StorageDevice_t *psdev = pif;
-	bool_t   exist = mci_ses_por(((StorageDevice_t *)psdev)->_sdev_port);
-	MCIPCB   *pmci;
+	bool_t   exist = TRUE;
 	int      result = FR_DISK_ERR;
 
-	pmci = psdev->_sdev_local[1];
+	DSTATUS s;
+	s32 Status;
+	XSdPs_Config *SdConfig;
+
+	BYTE pdrv=0;
+
+	//s = disk_status(pdrv);
+	s = sdcard_diskstatus(pif);
+	if ((s & STA_NODISK) != 0U) {
+		return s;
+	}
+
+	/* If disk is already initialized */
+	if ((s & STA_NOINIT) == 0U) {
+		return s;
+	}
+
+	if (CardDetect) {
+			/*
+			 * Card detection check
+			 * If the HC detects the No Card State, power will be cleared
+			 */
+			while(!((XSDPS_PSR_CARD_DPL_MASK |
+					XSDPS_PSR_CARD_STABLE_MASK |
+					XSDPS_PSR_CARD_INSRT_MASK) ==
+					( XSdPs_GetPresentStatusReg((u32)BaseAddress) &
+					(XSDPS_PSR_CARD_DPL_MASK |
+					XSDPS_PSR_CARD_STABLE_MASK |
+					XSDPS_PSR_CARD_INSRT_MASK))));
+	}
+
+	/*
+	 * Initialize the host controller
+	 */
+	SdConfig = XSdPs_LookupConfig((u16)pdrv);
+	if (NULL == SdConfig) {
+		s |= STA_NOINIT;
+		return s;
+	}
+
+	Status = XSdPs_CfgInitialize(&SdInstance[pdrv], SdConfig,
+					SdConfig->BaseAddress);
+	if (Status != XST_SUCCESS) {
+		s |= STA_NOINIT;
+		return s;
+	}
+
+	Status = XSdPs_CardInitialize(&SdInstance[pdrv]);
+	if (Status != XST_SUCCESS) {
+		s |= STA_NOINIT;
+		return s;
+	}
+
+
+	/*
+	 * Disk is initialized.
+	 * Store the same in Stat.
+	 */
+	s &= (~STA_NOINIT);
+
+	Stat[pdrv] = s;
+
+	//return s;
+
 	if(on && !exist){
 		f_mount(psdev->_sdev_devno, 0);
 		psdev->_sdev_attribute &= ~SDEV_DEVERROR;
-		mci_cls_por(pmci);
 		return TRUE;
 	}
 	else if(!on && exist){
-		psdev->_sdev_instimer += SENSE_TIME;
-		if((psdev->_sdev_attribute & SDEV_ONEEXIT) != 0 && psdev->_sdev_instimer < psdev->_sdev_inswait)
-			return FALSE;
-		pmci = mci_opn_por(((StorageDevice_t *)psdev)->_sdev_port);
-		if(pmci == NULL)
-			return FALSE;
-		psdev->_sdev_local[1] = pmci;
-		if(MciCheckCID(pmci) != E_OK){
-			psdev->_sdev_attribute |= SDEV_DEVERROR;
-			return TRUE;
-		}
-		if(MciSetAddress(pmci) != E_OK){
-			psdev->_sdev_attribute |= SDEV_DEVERROR;
-			return TRUE;
-		}
-		if(MciSendCID(pmci) != E_OK){
-			psdev->_sdev_attribute |= SDEV_DEVERROR;
-			return TRUE;
-		}
-		if(MciGetCardInfo(pmci, &SDCardInfo) != E_OK)
-			psdev->_sdev_attribute |= SDEV_DEVERROR;
-		else{
-			psdev->_sdev_maxsec = SDCardInfo.maxsector;
-			if(MciSelectCard(pmci, (((uint32_t)SDCardInfo.RCA) << 16)) != E_OK)
-				psdev->_sdev_attribute |= SDEV_DEVERROR;
-		}
-		if(MciConfiguration(pmci) != E_OK)
-			psdev->_sdev_attribute |= SDEV_DEVERROR;
-		if(MciSetWideBus(pmci) != E_OK)
-			psdev->_sdev_attribute |= SDEV_DEVERROR;
-		if((psdev->_sdev_attribute & SDEV_DEVERROR) == 0)
-			result = f_mount(psdev->_sdev_devno, &ActiveFatFsObj);
+		result = f_mount(psdev->_sdev_devno, &ActiveFatFsObj);
 		if(result != FR_OK)
 			psdev->_sdev_attribute |= SDEV_DEVERROR;
 		else
@@ -272,138 +302,112 @@ Label:
 /*
  *  FatFs用SDCARD読み込み関数
  */
-static int sdcard_diskread(void *pif, BYTE *Buffer, DWORD SectorNumber, BYTE SectorCount)
+static int sdcard_diskread(void *pif, BYTE *buff, DWORD sector, BYTE count)
 {
  	StorageDevice_t *psdev = pif;
-	MCIPCB          *pmci;
-	ER              ercd = E_OK;
-	int             retry = 0;
-#ifdef DMA_ALINE
-	unsigned int    align = ((unsigned int)Buffer) & 3;
-	int             i;
-#endif
+	DSTATUS s;
+	s32 Status;
+	DWORD LocSector = sector;
 
-	pmci = psdev->_sdev_local[1];
-	if((psdev->_sdev_attribute & (SDEV_EMPLOY|SDEV_NOTUSE)) != SDEV_EMPLOY || pmci == NULL)
-		return RES_ERROR;
-#ifndef DMA_ALINE
-	do{
-		ercd = mci_red_blk(pmci, Buffer, SectorNumber * psdev->_sdev_secsize, psdev->_sdev_secsize, SectorCount);
-		if(ercd == E_OK)
-			ercd = mci_wai_trn(pmci, 30*1000);
-		retry++;
-	}while(ercd != E_OK && retry < RETRY_COUNT);
-#else
-	if(align == 0){
-		do{
-			ercd = mci_red_blk(pmci, Buffer, SectorNumber * psdev->_sdev_secsize, psdev->_sdev_secsize, SectorCount);
-			if(ercd == E_OK)
-				ercd = mci_wai_trn(pmci, 30*1000);
-			retry++;
-		}while(ercd != E_OK && retry < RETRY_COUNT);
+	BYTE pdrv=0;
+
+	//s = disk_status(pdrv);
+	s = sdcard_diskstatus(pif);
+
+	if ((s & STA_NOINIT) != 0U) {
+		return RES_NOTRDY;
 	}
-	else{
-		for(i = 0 ; i < SectorCount ; i++, SectorNumber++, Buffer += psdev->_sdev_secsize){
-			do{
-				ercd = mci_red_blk(pmci, abuff, SectorNumber * psdev->_sdev_secsize, psdev->_sdev_secsize, 1);
-				if(ercd == E_OK)
-					ercd = mci_wai_trn(pmci, 30*1000);
-				retry++;
-			}while(ercd != E_OK && retry < RETRY_COUNT);
-			mem_cpy(Buffer, abuff, psdev->_sdev_secsize);
-		}
+	if (count == 0U) {
+		return RES_PARERR;
 	}
-#endif
-	if(ercd == E_OK)
-		return RES_OK;
-	else
+
+	/* Convert LBA to byte address if needed */
+	if ((SdInstance[pdrv].HCS) == 0U) {
+		LocSector *= (DWORD)XSDPS_BLK_SIZE_512_MASK;
+	}
+
+	Status  = XSdPs_ReadPolled(&SdInstance[pdrv], (u32)LocSector, count, buff);
+	if (Status != XST_SUCCESS) {
 		return RES_ERROR;
+	}
+
+    return RES_OK;
 }
 
 /*
  *  FatFs用SDCARD書き込み関数
  */
-static int sdcard_diskwrite(void *pif, const BYTE *Buffer, DWORD SectorNumber, BYTE SectorCount)
+static int sdcard_diskwrite(void *pif, const BYTE *buff, DWORD sector, BYTE count)
 {
 	StorageDevice_t *psdev = pif;
-	MCIPCB          *pmci;
-	ER              ercd = E_OK;
-	int             retry = 0;
-#ifdef DMA_ALINE
-	unsigned int    align = ((unsigned int)Buffer) & 3;
-	int             i;
-#endif
 
-	pmci = psdev->_sdev_local[1];
-	if((psdev->_sdev_attribute & (SDEV_EMPLOY|SDEV_NOTUSE)) != SDEV_EMPLOY || pmci == NULL)
-		return RES_ERROR;
-#ifndef DMA_ALINE
-	do{
-		ercd = mci_wri_blk(pmci, (void *)Buffer, SectorNumber * psdev->_sdev_secsize, psdev->_sdev_secsize, SectorCount);
-		if(ercd == E_OK)
-			ercd = mci_wai_trn(pmci, 30*1000);
-		retry++;
-	}while(ercd != E_OK && retry < RETRY_COUNT);
-#else
-	if(align == 0){
-		do{
-			ercd = mci_wri_blk(pmci, (void *)Buffer, SectorNumber * psdev->_sdev_secsize, psdev->_sdev_secsize, SectorCount);
-			if(ercd == E_OK)
-				ercd = mci_wai_trn(pmci, 30*1000);
-			retry++;
-		}while(ercd != E_OK && retry < RETRY_COUNT);
+	DSTATUS s;
+	s32 Status;
+	DWORD LocSector = sector;
+
+	BYTE pdrv=0;
+
+	//s = disk_status(pdrv);
+	s = sdcard_diskstatus(pif);
+
+	if ((s & STA_NOINIT) != 0U) {
+		return RES_NOTRDY;
 	}
-	else{
-		for(i = 0 ; i < SectorCount ; i++, SectorNumber++, Buffer += psdev->_sdev_secsize){
-			mem_cpy(abuff, Buffer, psdev->_sdev_secsize);
-			do{
-				ercd = mci_wri_blk(pmci, (void *)abuff, SectorNumber * psdev->_sdev_secsize, psdev->_sdev_secsize, 1);
-				if(ercd == E_OK)
-					ercd = mci_wai_trn(pmci, 30*1000);
-				retry++;
-			}while(ercd != E_OK && retry < RETRY_COUNT);
-		}
+	if (count == 0U) {
+		return RES_PARERR;
 	}
-#endif
-	if(ercd == E_OK)
-		return RES_OK;
-	else
+
+	/* Convert LBA to byte address if needed */
+	if ((SdInstance[pdrv].HCS) == 0U) {
+		LocSector *= (DWORD)XSDPS_BLK_SIZE_512_MASK;
+	}
+
+	Status  = XSdPs_WritePolled(&SdInstance[pdrv], (u32)LocSector, count, buff);
+	if (Status != XST_SUCCESS) {
 		return RES_ERROR;
+	}
+
+	return RES_OK;
 }
 
 
 /*
  *  FatFs用SDCARDIO制御関数
  */
-static int sdcard_diskioctl(void *pif, BYTE Func, void* Buffer)
+static int sdcard_diskioctl(void *pif, BYTE cmd, void* buff)
 {
 	StorageDevice_t *psdev = (StorageDevice_t *)pif;
-	DRESULT         result;
+	DRESULT res = RES_OK;
 
-	if(psdev == NULL)
-		return RES_ERROR;
-	if((psdev->_sdev_attribute & (SDEV_EMPLOY|SDEV_NOTUSE)) != SDEV_EMPLOY)
-		return RES_ERROR;
-	switch(Func){
-	case CTRL_SYNC:
-		result = RES_OK;			/* no action */
-		break;
-	case GET_SECTOR_COUNT:
-		*((DWORD *)Buffer) = psdev->_sdev_maxsec;
-		syslog_2(LOG_NOTICE, "ioctl notuse (%d)(%d) ", (int)Func, psdev->_sdev_maxsec);
-		result = RES_OK;
-		break;
-	case GET_BLOCK_SIZE:
-		*((DWORD *)Buffer) = 135;	/* ERASE_BLK */
-		syslog_1(LOG_NOTICE, "call disk_ioctl(GET_BLOCK_SIZE, %08x)", (int)(*((DWORD *)Buffer)));
-		result = RES_OK;
-		break;
-	default:
-		syslog_2(LOG_NOTICE, "call disk_ioctl(%d, %08x)", (int)psdev->_sdev_devno, (int)Buffer);
-		slp_tsk();
-		result = RES_PARERR;
-		break;
+	BYTE pdrv=0;
+
+	void *LocBuff = buff;
+	//if ((disk_status(pdrv) & STA_NOINIT) != 0U) {	/* Check if card is in the socket */
+	if ((sdcard_diskstatus(pif) & STA_NOINIT) != 0U) {	/* Check if card is in the socket */
+		return RES_NOTRDY;
 	}
-	return result;
+
+	res = RES_ERROR;
+	switch (cmd) {
+		case (BYTE)CTRL_SYNC :	/* Make sure that no pending write process */
+			res = RES_OK;
+			break;
+
+		case (BYTE)GET_SECTOR_COUNT : /* Get number of sectors on the disk (DWORD) */
+			(*((DWORD *)(void *)LocBuff)) = (DWORD)SdInstance[pdrv].SectorCount;
+			res = RES_OK;
+			break;
+
+		case (BYTE)GET_BLOCK_SIZE :	/* Get erase block size in unit of sector (DWORD) */
+			(*((DWORD *)((void *)LocBuff))) = ((DWORD)128);
+			res = RES_OK;
+			break;
+
+		default:
+			res = RES_PARERR;
+			break;
+	}
+
+	return res;
 }
 

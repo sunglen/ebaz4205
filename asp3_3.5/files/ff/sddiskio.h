@@ -6,7 +6,7 @@
  *  Copyright (C) 2012 by GT Development Center RICOH COMPANY,LTD. JAPAN
  *  Copyright (C) 2015-2016 by TOPPERS PROJECT Educational Working Group.
  * 
- *  上記著作権者は，以下の (1)〜(4) の条件か，Free Software Foundation 
+ *  上記著作権者は，以下の (1)〜(4) の条件か，Free Software Foundation
  *  によって公表されている GNU General Public License の Version 2 に記
  *  述されている条件を満たす場合に限り，本ソフトウェア（本ソフトウェア
  *  を改変したものを含む．以下同じ）を使用・複製・改変・再配布（以下，
@@ -49,7 +49,7 @@
 extern StorageDeviceFileFunc_t fatfsSDeviceFileFunc;
 
 extern void sd_init(intptr_t exinf);
-extern void _sd_setfcntldev(int no);
+//extern void _sd_setfcntldev(int no);
 
 
 #endif
