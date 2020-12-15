@@ -268,3 +268,17 @@ Xilinx SDKでビルドする場合は，ワークスペースを作成し，zybo
 	Release	3.4.0 追従
  
 以上
+
+
+EBAZ4205 microSD(TF) 配線定義
+
+microSD <--> EBAZ4205
+1(DATA2)		F13(PS_MIO44_501)
+2(DATA3)		B15(PS_MIO45_501)
+3(CMD)			C17(PS_MIO41_501)
+4(VDD)			VCC
+5(CLK)			D14(PS_MIO40_501)
+6(VSS)			GND
+7(DATA0)		E12(PS_MIO42_501)
+8(DATA1)		A9(PS_MIO43_501)
+9(CD)			A12(PS_MIO34_501)

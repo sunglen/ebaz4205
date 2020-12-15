@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date             : Mon Nov 30 23:38:51 2020
+| Date             : Tue Dec 15 23:11:25 2020
 | Host             : s-FMVNA5NE running 64-bit Ubuntu 18.04.2 LTS
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.393        |
+| Total On-Chip Power (W)  | 1.394        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.278        |
+| Dynamic (W)              | 1.279        |
 | Device Static (W)        | 0.115        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 68.9         |
@@ -61,7 +61,7 @@ Table of Contents
 | I/O            |     0.003 |       16 |       100 |           16.00 |
 | PS7            |     1.275 |        1 |       --- |             --- |
 | Static Power   |     0.115 |          |           |                 |
-| Total          |     1.393 |          |           |                 |
+| Total          |     1.394 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -84,12 +84,12 @@ Table of Contents
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccpint   |       1.000 |     0.693 |       0.667 |      0.027 |
+| Vccpint   |       1.000 |     0.694 |       0.667 |      0.027 |
 | Vccpaux   |       1.800 |     0.036 |       0.026 |      0.010 |
 | Vccpll    |       1.800 |     0.018 |       0.015 |      0.003 |
 | Vcco_ddr  |       1.500 |     0.356 |       0.354 |      0.002 |
 | Vcco_mio0 |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vcco_mio1 |       1.800 |     0.002 |       0.001 |      0.001 |
+| Vcco_mio1 |       1.800 |     0.003 |       0.002 |      0.001 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
 +-----------+-------------+-----------+-------------+------------+
 
@@ -147,7 +147,7 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| design_1_wrapper         |     1.278 |
+| design_1_wrapper         |     1.279 |
 |   design_1_i             |     1.275 |
 |     processing_system7_0 |     1.275 |
 |       inst               |     1.275 |

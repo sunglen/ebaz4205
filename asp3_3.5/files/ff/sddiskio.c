@@ -152,6 +152,8 @@ static int sdcard_sense(void *pif, BOOL on)
 
 	//s = disk_status(pdrv);
 	s = sdcard_diskstatus(pif);
+	printf("s=%d", s);
+
 	if ((s & STA_NODISK) != 0U) {
 		return s;
 	}

@@ -24,10 +24,10 @@ preplace netloc In0_0_1 1 1 2 840 270 N
 preplace netloc processing_system7_0_ENET0_GMII_TXD 1 1 1 840 -70n
 preplace netloc xlconcat_1_dout 1 2 1 N -70
 preplace netloc processing_system7_0_FCLK_CLK0 1 0 2 -100 220 830
-preplace netloc processing_system7_0_MDIO_ETHERNET_0 1 1 2 N 40 1110
-preplace netloc processing_system7_0_FIXED_IO 1 1 2 830 130 N
-preplace netloc processing_system7_0_DDR 1 1 2 840 110 N
 preplace netloc processing_system7_0_GPIO_0 1 1 2 NJ 60 NJ
+preplace netloc processing_system7_0_DDR 1 1 2 840 110 N
+preplace netloc processing_system7_0_FIXED_IO 1 1 2 830 130 N
+preplace netloc processing_system7_0_MDIO_ETHERNET_0 1 1 2 N 40 1110
 levelinfo -pg 1 -120 590 1000 1140
 pagesize -pg 1 -db -bbox -sgen -120 -490 1380 390
 "

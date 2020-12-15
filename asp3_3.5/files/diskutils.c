@@ -124,6 +124,7 @@ volume_format(int argc, char **argv)
 
 		//register
 		psdev->pdevf->_sdevf_sense(psdev, true);
+		//psdev->pdevf->_sdevf_sense(psdev, false);
 		//init
 		psdev->pdevf->_sdevf_diskinit(psdev);
 		//get sector size

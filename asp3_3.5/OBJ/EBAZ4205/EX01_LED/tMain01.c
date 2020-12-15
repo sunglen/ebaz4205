@@ -100,7 +100,7 @@ eTaskBody_main()
 	}
 	SVC_PERROR(cSerialPort_control(IOCTL_CRLF | IOCTL_FCSND | IOCTL_FCRCV));
 
-	syslog(LOG_NOTICE, "Sample program starts.");
+	syslog_0(LOG_NOTICE, "Sample program starts.");
 
 	cLED_output(LED0, LED_ON);
 	cLED_output(LED1, LED_ON);
