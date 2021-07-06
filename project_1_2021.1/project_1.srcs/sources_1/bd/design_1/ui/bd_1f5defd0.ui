@@ -1,0 +1,38 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.763881",
+   "Default View_TopLeft":"-333,-343",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port DDR_0 -pg 1 -lvl 3 -x 1140 -y 110 -defaultsOSRD
+preplace port FIXED_IO_0 -pg 1 -lvl 3 -x 1140 -y 130 -defaultsOSRD
+preplace port MDIO_ETHERNET_0_0 -pg 1 -lvl 3 -x 1140 -y 90 -defaultsOSRD
+preplace port GPIO_0_0 -pg 1 -lvl 3 -x 1140 -y 60 -defaultsOSRD
+preplace port port-id_ENET0_GMII_TX_CLK_0 -pg 1 -lvl 0 -x -120 -y -180 -defaultsOSRD
+preplace port port-id_ENET0_GMII_RX_CLK_0 -pg 1 -lvl 0 -x -120 -y -200 -defaultsOSRD
+preplace port port-id_ENET0_GMII_RX_DV_0 -pg 1 -lvl 0 -x -120 -y -160 -defaultsOSRD
+preplace portBus ENET0_GMII_TX_EN_0 -pg 1 -lvl 3 -x 1140 -y -150 -defaultsOSRD
+preplace portBus enet0_gmii_rxd -pg 1 -lvl 3 -x 1140 -y 270 -defaultsOSRD -right
+preplace portBus enet0_gmii_txd -pg 1 -lvl 3 -x 1140 -y -70 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 590 -y 30 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 2 -x 1000 -y 200 -defaultsOSRD
+preplace inst xlconcat_1 -pg 1 -lvl 2 -x 1000 -y -70 -defaultsOSRD
+preplace netloc ENET0_GMII_TX_CLK_0_1 1 0 2 -90 -200 850
+preplace netloc ENET0_GMII_RX_CLK_0_1 1 0 2 -100 -210 840
+preplace netloc ENET0_GMII_RX_DV_0_1 1 0 2 -80 -190 830
+preplace netloc processing_system7_0_ENET0_GMII_TX_EN 1 1 2 860 -150 N
+preplace netloc xlconcat_0_dout 1 1 2 N -10 1100
+preplace netloc In0_0_1 1 1 2 860 270 N
+preplace netloc processing_system7_0_ENET0_GMII_TXD 1 1 1 860 -90n
+preplace netloc xlconcat_1_dout 1 2 1 N -70
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 2 -90 250 840
+preplace netloc processing_system7_0_DDR 1 1 2 850 110 N
+preplace netloc processing_system7_0_FIXED_IO 1 1 2 830 130 N
+preplace netloc processing_system7_0_GPIO_0 1 1 2 860J 60 NJ
+preplace netloc processing_system7_0_MDIO_ETHERNET_0 1 1 2 N 10 1110
+levelinfo -pg 1 -120 590 1000 1140
+pagesize -pg 1 -db -bbox -sgen -340 -490 1380 390
+"
+}
+0
